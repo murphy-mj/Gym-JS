@@ -1,0 +1,39 @@
+
+
+
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each clientdetails}}
+      <tr>
+        <td>
+          {{id}}
+        </td>
+        <td>
+          {{firstName}}
+        </td>
+        <td>
+          {{lastName}}
+        </td>
+        <td>
+          {{age}}
+        </td>
+        <td>
+          {{gender}}
+        </td>
+        
+         <td>
+          <a href="/trainer/{{../trainersData.id}}/deleteClient/{{id}}" class="ui tiny red button">Remove Client</a>
+        </td>
+      </tr>
+   {{/each}}
+  </tbody>
+</table>

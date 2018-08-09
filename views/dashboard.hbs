@@ -1,0 +1,12 @@
+{{> menu id="dashboard"}}
+
+{{#each playlists}}
+  <section class="ui segment">
+    <h2 class="ui header">
+      {{title}}
+    </h2>
+    <p> Total Duration: {{duration}} </p>
+    <a href="/playlist/{{id}}"> View </a>
+  </section>
+{{/each}}
+  

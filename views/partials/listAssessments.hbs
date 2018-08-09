@@ -1,0 +1,66 @@
+<table class="ui table">
+  <thead>
+<tr>
+        <td>
+          Date
+        </td>
+        <td>
+          Weight
+        </td>
+         <td>
+          Chest
+        </td>
+        <td>
+          Thigh
+        </td>
+        <td>
+          Upper Arm
+        </td>
+         <td>
+          Hips       
+         </td>
+        <td>
+          Trend
+        </td>
+         <td>
+          Comment
+        </td>
+        <td>
+          Deleted assessment
+        </td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each assessments}}
+      <tr>
+        <td>
+          {{date}}
+        </td>
+        <td>
+          {{weight}}
+        </td>
+         <td>
+           {{chest}}
+        </td>
+        <td>
+          {{thigh}}
+        </td>
+        <td>
+          {{upperarm}}
+        </td>
+         <td>
+           {{hips}}
+        </td>
+        <td>
+          {{trend}}
+        </td>
+         <td>
+           {{comment}}
+        </td>
+        <td>
+        <a href = "/member/{{../membersData.id}}/deleteassessment/{{id}}" class ="ui icon button"><i class="icon trash"></i></a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,13 @@
+{{> menu_trainer id="alltrainers"}}
+
+{{#each trainersData}}
+  <section class="ui segment">
+    <h2 class="ui header">
+      {{firstName}}
+    </h2>
+    <p> id: {{id}} Last Name: {{lastName}}</p>
+    <a href="/trainer/group_clients/{{id}}"> View Clients </a>
+    <a href="/trainer/group_about/{{id}}"> About Trainer </a>
+  </section>
+{{/each}}
+  

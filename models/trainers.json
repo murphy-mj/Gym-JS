@@ -1,0 +1,60 @@
+{
+  "trainersData": [
+    {
+      "id": "78",
+      "firstName": "Fitness",
+      "lastName": "Fanatic",
+      "email": "ff@eir",
+      "password": "secret",
+      "gender": "M",
+      "speciality": "spinning",
+      "age": 35,
+      "bio": "work hard and eat less this is my motto. Up at 6 and bed at 12. Is this it, twenty years of educations, this is what i. Does my wallet look big in this! ",
+      "clients": []
+    },
+    {
+      "id": "79",
+      "firstName": "lazy",
+      "lastName": "boy",
+      "email": "lb@eir",
+      "password": "secret",
+      "gender": "M",
+      "speciality": "Sofa workout",
+      "age": "35",
+      "bio": "three wise people once said that veg was the source of life . Was it true",
+      "clients": [
+        {
+          "id": "01"
+        },
+        {
+          "id": "03"
+        }
+      ]
+    },
+    {
+      "id": "99",
+      "firstName": "n/a",
+      "lastName": "n/a",
+      "email": "na@eir",
+      "password": "secret",
+      "gender": "M",
+      "speciality": "n/a",
+      "age": 99,
+      "bio": "",
+      "clients": [
+        {
+          "id": "02"
+        },
+        {
+          "id": "04"
+        },
+        {
+          "id": "05"
+        },
+        {
+          "id": "c6fce0d9-f264-495c-a87a-dd80678f2f94"
+        }
+      ]
+    }
+  ]
+}

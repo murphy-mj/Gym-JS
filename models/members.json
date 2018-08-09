@@ -1,0 +1,227 @@
+{
+  "membersData": [
+    {
+      "id": "01",
+      "firstName": "Sonatas",
+      "lastName": "Beethoven",
+      "email": "sonatas@eir",
+      "password": "secret",
+      "height": "2.54",
+      "startWeight": "78",
+      "startWaist": 45,
+      "startArm": 27,
+      "startThigh": 45,
+      "age": "38",
+      "gender": "M",
+      "address": "22 Bakers Street London",
+      "trainerid": "79",
+      "assessments": [
+        {
+          "weight": "57",
+          "chest": "43",
+          "thigh": "32",
+          "upperarm": "20",
+          "waist": "32",
+          "hips": "35",
+          "id": "4e4ec411-8be7-4de7-9360-84c8794e410f",
+          "date": "2018-08-03T20:56:30.484Z",
+          "comment": "need a bit of work"
+        },
+        {
+          "weight": "56",
+          "chest": "44",
+          "thigh": "30",
+          "upperarm": "20",
+          "waist": "34",
+          "hips": "35",
+          "id": "604abe93-09e9-405f-a226-d7724b8b42e4",
+          "date": "2018-08-06T20:15:37.736Z",
+          "comment": "doing well",
+          "level": "debug",
+          "message": "Requesting Assessment for Assessment"
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "firstName": "Stephen",
+      "lastName": "Beethoven",
+      "email": "stephen@eir",
+      "password": "secret",
+      "height": 2.65,
+      "startWeight": 79,
+      "startWaist": 45,
+      "startArm": 35,
+      "startThigh": 46,
+      "age": 30,
+      "gender": "M",
+      "address": "23 Bakers Street London",
+      "trainerid": "99",
+      "assessments": [
+        {
+          "weight": "56",
+          "chest": "44",
+          "thigh": "33",
+          "upperarm": "21",
+          "waist": "31",
+          "hips": "32",
+          "id": "32",
+          "date": "2018-06-31T17:54:43.230Z",
+          "comment": ""
+        },
+        {
+          "weight": "56",
+          "chest": "44",
+          "thigh": "33",
+          "upperarm": "21",
+          "waist": "31",
+          "hips": "32",
+          "id": "33",
+          "date": "2018-05-31T17:54:43.230Z",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "firstName": "Rock",
+      "lastName": "Beethoven",
+      "email": "rock@eir",
+      "password": "secret",
+      "height": 2.89,
+      "startWeight": 90,
+      "startWaist": 45,
+      "startArm": 27,
+      "startThigh": 45,
+      "age": 45,
+      "gender": "F",
+      "address": "25 Bakers Street London",
+      "trainerid": "79",
+      "assessments": []
+    },
+    {
+      "id": "04",
+      "firstName": "Swing",
+      "lastName": "Beethoven",
+      "email": "swing@eir",
+      "password": "secret",
+      "height": 2.89,
+      "startWeight": 90,
+      "startWaist": 45,
+      "startArm": 27,
+      "startThigh": 45,
+      "age": 65,
+      "gender": "F",
+      "address": "26 Bakers Street London",
+      "trainerid": "99",
+      "assessments": [
+        {
+          "weight": "56",
+          "chest": "44",
+          "thigh": "33",
+          "upperarm": "21",
+          "waist": "31",
+          "hips": "32",
+          "id": "35",
+          "date": "2017-07-31T17:54:43.230Z",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "firstName": "Sean",
+      "lastName": "Mullally",
+      "email": "sean@eir",
+      "password": "secret",
+      "id": "05",
+      "height": 2.89,
+      "startWeight": 85,
+      "startWaist": 47,
+      "startArm": 27,
+      "startThigh": 45,
+      "age": 53,
+      "gender": "M",
+      "address": "27 Bakers Street London",
+      "trainerid": "99",
+      "assessments": [
+        {
+          "weight": "56",
+          "chest": "44",
+          "thigh": "33",
+          "upperarm": "21",
+          "waist": "31",
+          "hips": "32",
+          "id": "37",
+          "date": "2016-07-31T17:54:43.230Z",
+          "comment": ""
+        },
+        {
+          "weight": "56",
+          "chest": "44",
+          "thigh": "33",
+          "upperarm": "21",
+          "waist": "31",
+          "hips": "32",
+          "id": "38",
+          "date": "2016-08-31T17:54:43.230Z",
+          "comment": ""
+        },
+        {
+          "weight": "56",
+          "chest": "44",
+          "thigh": "33",
+          "upperarm": "21",
+          "waist": "31",
+          "hips": "32",
+          "id": "39",
+          "date": "2016-09-31T17:54:43.230Z",
+          "comment": "doing well"
+        }
+      ]
+    },
+    {
+      "firstName": "Martin",
+      "lastName": "Murphy",
+      "gender": "M",
+      "email": "martin@eir",
+      "password": "secret",
+      "height": "3",
+      "startweight": "78",
+      "startWaist": 45,
+      "startArm": 27,
+      "startThigh": 45,
+      "address": "dunmore",
+      "id": "c6fce0d9-f264-495c-a87a-dd80678f2f94",
+      "trainerid": "99",
+      "assessments": []
+    },
+    {
+      "firstName": "Majella",
+      "lastName": "Mullally",
+      "gender": "F",
+      "email": "maj@eir",
+      "password": "secret",
+      "height": "3",
+      "startweight": "67",
+      "age": "37",
+      "address": "dunmore",
+      "startarm": "25",
+      "startthigh": "27",
+      "id": "09",
+      "trainerid": "79",
+      "assessments": [
+        {
+          "weight": "56",
+          "chest": "44",
+          "thigh": "33",
+          "upperarm": "21",
+          "waist": "31",
+          "hips": "32",
+          "id": "62",
+          "date": "2018-07-31T17:54:43.230Z",
+          "comment": "doing well"
+        }
+      ]
+    }
+  ]
+}
