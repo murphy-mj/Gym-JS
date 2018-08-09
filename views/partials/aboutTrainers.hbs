@@ -1,0 +1,42 @@
+
+
+
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Speciality</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each trainersData}}
+      <tr>
+        <td>
+          {{id}}
+        </td>
+        <td>
+          {{firstName}}
+        </td>
+        <td>
+          {{lastName}}
+        </td>
+        <td>
+          {{age}}
+        </td>
+        <td>
+          {{gender}}
+        </td>
+        <td>
+          {{speciality}}
+        </td>
+         <td>
+          <a href="/trainer/{{id}}/selectTrainer" class="ui tiny blue button">Select Trainer</a>
+        </td>
+      </tr>
+   {{/each}}
+  </tbody>
+</table>

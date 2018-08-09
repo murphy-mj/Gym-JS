@@ -1,0 +1,12 @@
+{{> menu_member id="dashboard"}}
+
+{{#each members}}
+  <section class="ui segment">
+    <h2 class="ui header">
+      {{title}}
+    </h2>
+    <p> name: {{firstName}} Surname: {{lastName}}</p>
+    <a href="/member/{{id}}"> View </a>
+  </section>
+{{/each}}
+  
