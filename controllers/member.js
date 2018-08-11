@@ -14,27 +14,31 @@ const member = {
     logger.debug('Member id = ',memberID);
     logger.debug('before Assess Array ',);
     logger.debug('Members data2 = ',members.getMemberById(memberID).assessments);
+    logger.debug('Members ideal? = ',analy.isIdealBodyWeight(members.getMemberById(memberID)));
+    
     const viewData = {
       title: 'Members Info',
       membersData: members.getMemberById(memberID),
       assessments: members.getMemberById(memberID).assessments,
-      bmi: analy.getBMI(members.getMemberById(memberID).assessments),
-      bmicategory: analy.getBMICategory(analy.getBMI(members.getMemberById(memberID).assessments)),
+      bmi: analy.getBMI(members.getMemberById(memberID).assessments,members.getMemberById(memberID).height),
+      bmicategory: analy.getBMICategory(analy.getBMI(members.getMemberById(memberID).assessments,members.getMemberById(memberID).height)),
       idealbodyweight: analy.isIdealBodyWeight(members.getMemberById(memberID)),
     };
+    
+    
     response.render('member', viewData);
   },
   
   indexM(request, response) {
-    logger.info('dashboard rendering for logging in Member');
+    logger.info('dashboard rendering for logging in Member index M');
     const loggedInUser = accounts.getCurrentUser(request);
-
+    logger.debug('Members ideal? = ',analy.isIdealBodyWeight(members.getMemberById(loggedInUser.id)));
     const viewData = {
       title: 'Members Dashboard',
       membersData: members.getMemberById(loggedInUser.id),
       assessments: loggedInUser.assessments,
-      bmi: analy.getBMI(members.getMemberById(loggedInUser.id).assessments),
-      bmicategory: analy.getBMICategory(analy.getBMI(members.getMemberById(loggedInUser.id).assessments)),
+      bmi: analy.getBMI(members.getMemberById(loggedInUser.id).assessments,loggedInUser.height),
+      bmicategory: analy.getBMICategory(analy.getBMI(members.getMemberById(loggedInUser.id).assessments,loggedInUser.height)),
       idealbodyweight: analy.isIdealBodyWeight(members.getMemberById(loggedInUser.id)),
     };
     logger.info('about to render',loggedInUser.id);
@@ -59,9 +63,10 @@ const member = {
     newAssessment.id = uuid();
     newAssessment.date = new Date();
     newAssessment.comment = "";
-  logger.debug('Adding Assessment for Member', memberId);
+    newAssessment.trend = false;
+    logger.debug('Adding Assessment for Member', memberId);
 
-  members.addAssessment(memberId,newAssessment);
+    members.addAssessment(memberId,newAssessment);
     response.redirect('/member/' + memberId);
   },
   

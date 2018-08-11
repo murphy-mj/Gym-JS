@@ -4,72 +4,47 @@
   <div class="ui four small statistics">
     
     <div class = "ui statistic">
-      <div class = "value">
-        <i class="user icon"></i>
-      </div>
-      <div class"label">
-         {{membersData.firstName}}
-      </div>
+        <div class = "text value">
+          <i class="user icon"></i><br>
+          {{membersData.firstName}}  {{membersData.lastName}}
+        </div>
+         <div class"label">
+            Member Name
+         </div>  
     </div>
     
     <div class = "ui statistic">                  
         <div class = "value">
-          
-        <script type="text/javascript">
-      
-          if({{idealbodyweight}})
-          document.write("Access Denied! true"); 
-          document.write('<i class="red dashboard icon"></i>';
-          else 
-          document.write("Access Denied! false"); 
-          document.write('<i class="red dashboard icon"></i>';
-          {{idealbodyweight}}
-          </script>
+       {{#if idealbodyweight}} 
+       <i class="smile icon"></i><br>
+        {{else}}
+        <i class="frown icon"></i><br>
+        {{/if}}
         </div>
-      <div class"label">
-       Ideal Body Weight
-      </div>  
+        <div class"label">
+          Ideal Body Weight 
+        </div>  
     </div>   
       
     <div class = "ui statistic"> 
-      
        <div class = "value">
-         <i class="heartbeat icon"></i>{{bmi}}
-      </div>
-      
-      <div class"label">
+         <i class="heartbeat icon"></i><br>
+         {{bmi}}
+       </div>
+       <div class"label">
          BMI
-      </div>  
+       </div>  
     </div>
       
     <div class = "ui statistic">                                       
-       <div class = "value">
-         <i class="doctor icon"></i>
+       <div class = "text value">
+         <i class="doctor icon"></i><br>
+         {{bmicategory}}
       </div>
       <div class"label">
-         {{bmicategory}}
+        Category
       </div>         
     </div>
       
   </div>
 </section>
-
-<script type="text/javascript">
-var username = "Agent006";
-if(username == "Agent007")
-	document.write("Welcome special agent 007"); 
-else
-  
-  document.write('<i class="red dashboard icon"></i>');
-	document.write("Access Denied!"); 
-document.write("<br /><br />Would you like to try again?<br /><br />");
- // document.write("<br><i class="red dashboard icon"></i></br>");
-
-// User enters a different name
-username = "Agent007";
-if(username == "Agent007")
-	document.write("Welcome special agent 007"); 
-else
-	document.write("Access Denied!"); 
-
-</script>

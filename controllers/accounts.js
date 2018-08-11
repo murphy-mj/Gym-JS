@@ -52,13 +52,13 @@ const accounts = {
   
     
     if (member) {
-      const receivedemail = member.email;
+      let receivedemail = member.email;
       response.cookie('member', member.email);
        response.cookie('trainer','');
       logger.info(`logging member in ${member.email}`);
       response.redirect('/dashboard');
     } else if (trainer) {
-      const receivedemail = trainer.email;
+      let receivedemail = trainer.email;
       response.cookie('trainer', trainer.email);
       response.cookie('member','');
       logger.info(`logging trainer in ${trainer.email}`);
@@ -71,14 +71,14 @@ const accounts = {
   },
 
   getCurrentUser(request) {
-    logger.info('what object member email',request.cookies.member);
-    logger.info('what object trainer email',request.cookies.trainer);
+    logger.info('get current what object member email',request.cookies.member);
+    logger.info('get current what object trainer email',request.cookies.trainer);
     if(request.cookies.trainer !== ''){
-      const userEmailt = request.cookies.trainer;
+      let userEmailt = request.cookies.trainer;
       logger.info('what object trainer object',trainersStore.getTrainerByEmail(userEmailt));
       return trainersStore.getTrainerByEmail(userEmailt);
     } else {  
-        const userEmailm = request.cookies.member;
+        let userEmailm = request.cookies.member;
         logger.info('what object member object',membersStore.getMemberByEmail(userEmailm));
         return membersStore.getMemberByEmail(userEmailm);
   }
@@ -89,7 +89,7 @@ const accounts = {
   
   
   updateSettings(request,response) {
-    const userEmail = request.cookies.members;
+    let userEmail = request.cookies.members;
     // return membersStore.getMemberByEmail(userEmail);
     response.redirect('/dashboard');
   },

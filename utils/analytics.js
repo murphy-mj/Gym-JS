@@ -4,24 +4,35 @@
 
 const convt = require('./conversion');
 const members = require('../models/membersStore.js');
-
+const logger = require('../utils/logger');
 
 
 const analytics = {
 
   
-   getBMI(assessments) {
-    var bmiAss = 0;
+   getBMI(assessments,height) {
+    let bmiAss = 0.000;
     if ((assessments === null || assessments === 'undefined')) {
-     bmiAss = 1;
+     bmiAss = 0.000;
     } else if(assessments.length == 0) {
-              bmiAss = 0;
+              bmiAss = 0.000;
       } else {
-              for (let i = 0; i < assessments.length; i++) {
-                   bmiAss = bmiAss + assessments[i].weight;
+            if(height <= 0){
+               bmiAss = 0.000
+            }else {
+              let weight2 = (assessments[assessments.length -1].weight);
+              let bmih = (height * height);
+              bmiAss = (weight2 / bmih);
+              logger.debug('bmi weight = ',weight2);
+              logger.debug('Trainer id height sq = ',(height * height));
+              logger.debug('Trainer id bmie = ',bmiAss);
+              logger.debug('Trainer id bmi round = ',Math.round(bmiAss*100));
+            }
+        
               }
-           }
-     return bmiAss;
+     
+     
+     return (Math.round(bmiAss*100)/100);
   },
   
   getBMICategory(bmi){
@@ -48,10 +59,10 @@ const analytics = {
   
   
   isIdealBodyWeight(member){
-    var idealBodyWeight = 0;
-    var weight = member.startWeight;
-    var height = convt.convertMeterstoInches(member.height);
-    var fivefeet = 60.00;
+    let idealBodyWeight = 0;
+    let weight = member.startweight;
+    let height = convt.convertMeterstoInches(member.height);
+    let fivefeet = 60.00;
     
     if(height <= fivefeet){
        if(member.gender == "M") {
@@ -67,7 +78,8 @@ const analytics = {
       }
       
       }
-    
+    logger.debug('ideal body weight = ',idealBodyWeight);
+    logger.debug('weight = ',(weight));
     return ((idealBodyWeight <= (weight +2.0)) && (idealBodyWeight >= (weight -2.0)));
   },
   

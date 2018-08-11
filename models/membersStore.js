@@ -5,6 +5,7 @@
 const _ = require('lodash');
 const JsonStore = require('./json-store');
 const logger = require('../utils/logger');
+const prepdata = require('../utils/prepdata');
 
 
 const membersStore = {
@@ -44,7 +45,8 @@ const membersStore = {
     //const subAssess = member.assessments;
       logger.debug("adding Assess on memberinitial ");
     //logger.debug("adding Assess on member",member.assessments);
-      
+    newAssessment.trend = prepdata.getTrend(newAssessment);
+    logger.debug("adding Assess on member", newAssessment.trend);
     member.assessments.push(newAssessment);
       logger.debug("adding Assess on memberpost new ");
     // logger.debug("adding Assess on member",this.store.member.assessments);
