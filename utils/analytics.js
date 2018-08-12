@@ -11,6 +11,7 @@ const analytics = {
 
   
    getBMI(assessments,height) {
+    logger.info('get test ', members.getTest());
     let bmiAss = 0.000;
     if ((assessments === null || assessments === 'undefined')) {
      bmiAss = 0.000;

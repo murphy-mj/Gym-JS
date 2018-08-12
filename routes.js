@@ -4,10 +4,8 @@ const express = require('express');
 const router = express.Router();
 
 const accounts =  require('./controllers/accounts.js');
-
 const dashboard = require('./controllers/dashboard.js');
 const initial_screen = require('./controllers/initial_screen.js');
-const playlist = require('./controllers/playlist.js');
 const member = require('./controllers/member.js')
 const trainers = require('./controllers/trainers.js')
 
@@ -66,9 +64,6 @@ router.get('/trainer', trainers.index);
 router.get('/initial_screen', initial_screen.index);
 router.get('/logoff', accounts.logout);
 
-
-router.get('/playlist/:id', playlist.index);
-router.get('/playlist/:id/deletesong/:songid', playlist.deleteSong);
 
 
 
