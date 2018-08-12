@@ -16,6 +16,9 @@
         <td>
           Upper Arm
         </td>
+        <td>
+          Waist
+        </td>
          <td>
           Hips       
          </td>
@@ -48,11 +51,18 @@
         <td>
           {{upperarm}}
         </td>
-         <td>
+        <td>
+           {{waist}}
+        </td>
+        <td>
            {{hips}}
         </td>
         <td>
-          {{trend}}
+          {{#if trend}}
+         <div class="ui green horizontal label">trend up</div>
+          {{else}}
+           <div class="ui red horizontal label">trend down</div>
+          {{/if}}
         </td>
          <td>
            {{comment}}

@@ -23,6 +23,8 @@ const dashboard = {
     response.render('dashboardMembers', viewData);
   },
   
+  
+  
   indexM(request, response) {
     logger.info('dashboard rendering for logging in Member');
     const loggedInUser = accounts.getCurrentUser(request);

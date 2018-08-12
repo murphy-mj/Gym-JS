@@ -93,6 +93,18 @@ const prepdata = {
   },
   
   
+  
+  getTrend(newAssessment){
+  
+  return true;
+  }
+  
+  
+  
+  
+  
+  
+  
    
 };
 
