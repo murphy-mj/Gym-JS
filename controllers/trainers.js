@@ -11,18 +11,16 @@ const trainer = {
    // index is used to show the selected trainer's client list
   index(request, response) {
     const contnt = request.path;
-    logger.debug('whats content', contnt);
-    var n = contnt.indexOf("group");
-    logger.debug('is this group ',n);
-    
-    
-    var trainerID = request.params.trainerid;
-    logger.debug('Trainer id index = ',trainerID);
+    logger.debug('whats requested path, group or individual', contnt);
+    let n = contnt.indexOf("group");
+    logger.debug('index of group ',n);
+    let trainerID = request.params.trainerid;
+    logger.debug('Trainer id from index = ',trainerID);
     
     if(trainerID == null || trainerID == ""){
-      var loggedInUser = accounts.getCurrentUser(request);
+      let loggedInUser = accounts.getCurrentUser(request);
       trainerID = loggedInUser.id;
-      logger.debug('current logged in user about = ',loggedInUser.id);
+      logger.debug('current logged in user id = ',loggedInUser.id);
     }
     
     const allMembers = members.getAllMembers();
@@ -42,25 +40,9 @@ const trainer = {
   
   },
  
-  /*
-  
-  // index2 is used to show the current loggin in trainer client list
-  index2(request, response) {
-    const loggedInUser = accounts.getCurrentUser(request);
-    const allMembers = members.getAllMembers();
-    logger.debug('current logged in user index2 = ',loggedInUser);
-    
-   const viewData = {
-   title: 'Trainer Info',
-   trainersData: trainers.getTrainerById(loggedInUser.id),
-   clientdetails: prepdata.getTrainerClients(trainers.getTrainerById(loggedInUser.id),allMembers)
-   };
-   response.render('trainerclients', viewData);
-  },
-*/
   
   index3(request, response) {
-    logger.info('dashboard rendering for logging in Member');
+    logger.info('index 3');
     const loggedInUser = accounts.getCurrentUser(request);
 
     const viewData = {
@@ -68,7 +50,7 @@ const trainer = {
       membersData: members.getMemberById(loggedInUser.id),
       assessments: loggedInUser.assessments,
     };
-    logger.info('about to render',loggedInUser.id);
+    logger.info('about to render tranerclients',loggedInUser.id);
     response.render('trainerclients', viewData);
   },
   
@@ -96,9 +78,9 @@ const trainer = {
     //looking at source of request
     const contnt = request.path;
     logger.debug('whats content', contnt);
-    var n = contnt.indexOf("group");
+    let n = contnt.indexOf("group");
     logger.debug('is this group ',n);
-    var trainerID = request.params.trainerid;
+    let trainerID = request.params.trainerid;
     logger.debug('Trainer id from Paramterers = ',trainerID);
     
     if(trainerID == null || trainerID == ""){
@@ -108,8 +90,6 @@ const trainer = {
     }
     
     const trainersData = trainers.getTrainerById(trainerID);
-    
-    
     const viewData = {
       title: 'About Trainer',
       trainersData: trainersData,
@@ -123,20 +103,6 @@ const trainer = {
   },
   
   
-/*
-  about2(request, response) {
-    const loggedInUser = accounts.getCurrentUser(request);
-    logger.debug('current logged in user about2 = ',loggedInUser.id);
-    
-    const viewData = {
-      title: 'About current logged in Trainer',
-      trainersData: trainers.getTrainerById(loggedInUser.id),
-    };
-    response.render('trainerabout_t', viewData);
-  },
-*/ 
-  
-  
   
   aboutAllTrainers(request, response) {
     logger.debug('about all trainers');
@@ -148,14 +114,15 @@ const trainer = {
     response.render('trainerabout', viewData);
   },
   
+  
   trainerDataUpdate(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
     logger.debug('current logged data update user= ',loggedInUser);
     
     const trainr = request.body;
-      if(trainr.firstName != null || trainr.firstName !=""){
+    if(trainr.firstName != null || trainr.firstName !=""){
       loggedInUser.firstName = trainr.firstName
-      }
+    }
     if(trainr.lastName != null || trainr.lastName !=""){
       loggedInUser.lastName = trainr.lastName
     }
@@ -172,7 +139,6 @@ const trainer = {
       loggedInUser.bio = trainr.bio
     }
     trainers.updateTrainerDetails();
- //   const loggedInTrainer2 = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Trainers Info Update',
       trainersData: loggedInUser,
@@ -189,21 +155,21 @@ const trainer = {
       trainersData: accounts.getCurrentUser(request),
     };
     
-  response.render('trainerdata', viewData);
+    response.render('trainerdata', viewData);
   
   },
   
   
   
   
-  deleteClient(request, response) {
+deleteClient(request, response) {
     const trainerId = request.params.trainerid;
     const memberId = request.params.memberid;
-   logger.debug(`Removing client member ${memberId} from trainer ${trainerId} client list`);
-   members.removeTrainer(trainerId, memberId);
-   trainers.removeClient(trainerId, memberId);
+    logger.debug(`Removing client member ${memberId} from trainer ${trainerId} client list`);
+    members.removeTrainer(trainerId, memberId);
+    trainers.removeClient(trainerId, memberId);
     response.redirect('/trainer_clients/' + trainerId);
-  },
+},
   
   
 };

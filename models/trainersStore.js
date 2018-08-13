@@ -1,4 +1,5 @@
 'use strict';
+
 const _=require('lodash');
 const JsonStore = require('./json-store');
 const logger = require('../utils/logger');
@@ -44,6 +45,10 @@ const trainersStore = {
     trainerDetails.clients.push(memberId);
     this.store.save();
     
+  },
+  
+  getTestT(){
+  return "46";
   },
   
 };

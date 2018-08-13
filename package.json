@@ -22,7 +22,7 @@
     "node": "8.x"
   },
   "repository": {
-    "url": "https://github.com/wit-hdip-comp-sci-2018/glitch-template-1"
+   "url": "https://github.com/wit-hdip-comp-sci-2018/glitch-template-1"
   },
   "license": "MIT",
   "keywords": [
