@@ -1,0 +1,42 @@
+<table class="ui table">
+  <thead>
+<tr>
+        <td>
+          Goal set Date
+        </td>
+        <td>
+          Goal Category
+        </td>
+         <td>
+          Goal
+        </td>
+        <td>
+          Status
+        </td>
+        <td>
+          Deleted Goal
+        </td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each membersData.goals}}
+      <tr>
+        <td>
+          {{date}}
+        </td>
+        <td>
+          {{goalcategory}}
+        </td>
+         <td>
+           {{goal}}
+        </td>
+        <td>
+          {{status}}
+        </td>
+        <td>
+        <a href = "/member/{{../membersData.id}}/deletegoal/{{id}}" class ="ui icon button"><i class="icon trash"></i></a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

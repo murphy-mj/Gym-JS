@@ -15,7 +15,7 @@ const analytics = {
     let bmiAss = 0.000;
     if ((assessments === null || assessments === 'undefined')) {
      bmiAss = 0.000;
-    } else if(assessments.length == 0) {
+    } else if(assessments.length === 0) {
               bmiAss = 0.000;
       } else {
             if(height <= 0){
@@ -66,13 +66,13 @@ const analytics = {
     let fivefeet = 60.00;
     
     if(height <= fivefeet){
-       if(member.gender == "M") {
+       if(member.gender === "M") {
          idealBodyWeight = 50;
        } else {
          idealBodyWeight = 50;
        }
     } else {
-      if(member.gender == "M") {
+      if(member.gender === "M") {
          idealBodyWeight = 50 + ((height - fivefeet) * 2.3);
       } else{
           idealBodyWeight = 45.5 + ((height - fivefeet) * 2.3);

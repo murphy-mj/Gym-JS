@@ -157,6 +157,27 @@ const member = {
   
   },
   
+  
+  addGoal(request, response) {
+    let memberId = request.params.id;
+    const newGoal = request.body;
+    newGoal.id = uuid();
+    newGoal.date = new Date();
+    newGoal.status = "open";
+    logger.debug('Adding Goal for Member', memberId);
+    members.addGoal(memberId,newGoal);
+    response.redirect('/member/' + memberId);
+  },
+  
+  deleteGoal(request, response) {
+    let memberId = request.params.id;
+    const goalId = request.params.goalid;
+    logger.debug('Deleting Goal',goalId );
+    members.removeGoal(memberId, goalId);
+    response.redirect('/member/' + memberId);
+  },
+  
+  
 };
 
 module.exports = member;
