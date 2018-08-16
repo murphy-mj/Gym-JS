@@ -60,9 +60,9 @@ const membersStore = {
   //using lodash
   selectAssessment(memberid,assessmentid){
     const membr = this.getMemberById(memberid);
-    if(membr.assessments == null || membr.assessments == undefined) {
+    if(membr.assessments === null || membr.assessments === undefined) {
        //do nothing
-    } else if(membr.assessments.length == 0){
+    } else if(membr.assessments.length === 0){
        //do nothing
         } else {
             const assess =  _.findBy(membr.assessments, assessmentid);  
@@ -75,13 +75,13 @@ const membersStore = {
   selectAssessment2(memberid,assessmentid){
     const membr = this.getMemberById(memberid);
     var assess = {};
-    if(membr.assessments == null || membr.assessments == undefined) {
+    if(membr.assessments === null || membr.assessments === undefined) {
         //do nothing
-    } else if(membr.assessments.length == 0){
+    } else if(membr.assessments.length === 0){
           //do nothing
          } else {
               for (let i = 0; i < membr.assessments.length; i++) {
-                  if(membr.assessments[i].id == assessmentid) {
+                  if(membr.assessments[i].id === assessmentid) {
                    assess = membr.assessments[i];
                   }
     
@@ -97,6 +97,22 @@ const membersStore = {
   this.store.save();
   },
   
+  
+  addGoal(memberId,newGoal) {
+    logger.debug("adding Goal on member id",memberId); 
+    const membr = this.getMemberById(memberId);
+    // const goals = membr.goals;
+    membr.goals.push(newGoal);
+    this.store.save();
+    logger.debug("adding Goal on member id",membr.goals); 
+  },
+  
+  
+   removeGoal(id, goalId) {
+    const member1 = this.getMemberById(id);
+    _.remove(member1.goals, {id:goalId});
+    this.store.save();
+  },
   
 };
 

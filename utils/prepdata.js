@@ -15,7 +15,7 @@ const prepdata = {
     
   if ((trainerIn === null || trainerIn === 'undefined')) {
      // do nothingclients
-    } else if(trainerIn.clients.length == 0) {
+    } else if(trainerIn.clients.length === 0) {
       // do nothing
     } else {
     logger.info('trainerIn ', trainerIn.clients);
