@@ -17,7 +17,7 @@ const trainer = {
     let trainerID = request.params.trainerid;
     logger.debug('Trainer id from index = ',trainerID);
     
-    if(trainerID === null || trainerID === ""){
+    if(trainerID === null || trainerID === "" || trainerID === undefined){
       let loggedInUser = accounts.getCurrentUser(request);
       trainerID = loggedInUser.id;
       logger.debug('current logged in user id = ',loggedInUser.id);
@@ -26,13 +26,14 @@ const trainer = {
     const allMembers = members.getAllMembers();
     const trainersData = trainers.getTrainerById(trainerID);
     const clientDetails = prepdata.getTrainerClients(trainers.getTrainerById(trainerID),allMembers)
+    
     const viewData = {
       title: 'Trainer Info',
       trainersData: trainersData,
       clientdetails: clientDetails
     };
     
-    if(n == -1){
+    if(n === -1){
     response.render('trainerclients', viewData);
     } else {
       response.render('group_trainerclients', viewData);
@@ -62,8 +63,10 @@ const trainer = {
      const membr = members.getMemberById(memberID);
     const assessments = membr.assessments;
      logger.debug('index 4 Member',assessments);
+     let loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Trainer Info',
+      trainersData:loggedInUser,
       membersData: membr,
       assessments: assessments,
     };
@@ -83,8 +86,8 @@ const trainer = {
     let trainerID = request.params.trainerid;
     logger.debug('Trainer id from Paramterers = ',trainerID);
     
-    if(trainerID === null || trainerID === ""){
-      var loggedInUser = accounts.getCurrentUser(request);
+    if(trainerID === null || trainerID === undefined || trainerID === '' ){
+      let loggedInUser = accounts.getCurrentUser(request);
       trainerID = loggedInUser.id;
       logger.debug('current logged in user about = ',loggedInUser.id);
     }
@@ -120,23 +123,24 @@ const trainer = {
     logger.debug('current logged data update user= ',loggedInUser);
     
     const trainr = request.body;
-    if(trainr.firstName !== null || trainr.firstName !== ""){
-      loggedInUser.firstName = trainr.firstName
+   // if(trainr.firstname !== null || trainr.firstname !== "" || trainr.firstname !== undefined){
+     if(trainr.firstname !== ''){ 
+      loggedInUser.firstName = trainr.firstname;
     }
-    if(trainr.lastName !== null || trainr.lastName !== ""){
-      loggedInUser.lastName = trainr.lastName
+    if(trainr.lastname !== ''){
+      loggedInUser.lastName = trainr.lastname;
     }
-    if(trainr.gender !== null || trainr.gender !== ""){
-      loggedInUser.gender = trainr.gender
+    if(trainr.gender !== ''){
+      loggedInUser.gender = trainr.gender;
     }
-    if(trainr.age !== null || trainr.age !== ""){
-      loggedInUser.age = trainr.age
+    if(trainr.age !== ''){
+      loggedInUser.age = trainr.age;
     }
-    if(trainr.speciality !== null || trainr.speciality !== ""){
-      loggedInUser.speciality = trainr.speciality
+    if(trainr.speciality !== ''){
+      loggedInUser.speciality = trainr.speciality;
     }
-    if(trainr.bio !== null || trainr.bio !== ""){
-      loggedInUser.bio = trainr.bio
+    if(trainr.bio !== ''){
+      loggedInUser.bio = trainr.bio;
     }
     trainers.updateTrainerDetails();
     const viewData = {

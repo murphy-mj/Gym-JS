@@ -5,11 +5,11 @@
   <div class="three fields">
     <div class="field">
       <label>First Name</label>
-      <input placeholder={{trainersData.firstName}} type="text"  name="firstName">
+      <input placeholder={{trainersData.firstName}} type="text"  name="firstname">
     </div>
     <div class="field">
       <label>Last Name</label>
-      <input placeholder={{trainersData.lastName}}  type="text"  name="lastName">
+      <input placeholder={{trainersData.lastName}}  type="text"  name="lastname">
     </div>
      <div class="field">
       <label>Gender</label>
@@ -23,15 +23,15 @@
     </div>
     <div class="field">
       <label>Speciality</label>
-      <input placeholder={{trainersData.speciality}} type="number"  name="speciality">
+      <input placeholder={{trainersData.speciality}} type="text"  name="speciality">
     </div>
   </div>
-  <div class="two fields">
+  <div class="three fields">
         <div class="field">
           <label>Biographical Content:</label>
         </div>
-        <div class="ui fiels">
-          <textarea rows="2" name="bio">{{trainersData.bio}} </textarea>
+        <div class="ui fields">
+          <textarea rows="6" cols ="20" name="bio">{{trainersData.bio}} </textarea>
         </div>
   </div>
   <button class="ui blue submit button">Update</button>

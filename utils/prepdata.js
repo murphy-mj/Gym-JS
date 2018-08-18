@@ -9,11 +9,14 @@ const logger = require('./logger');
 
 const prepdata = {
   
+  // this fuction returns the client details
+  // each trainer has a list of client id's, these are members that have selected the trainer to be their trainer
+  // members can select and change trainers, trainers can only remove them from thier list
+  
   getTrainerClients(trainerIn,membersIn){
-    
   const clientDetails = [];
     
-  if ((trainerIn === null || trainerIn === 'undefined')) {
+  if ((trainerIn === null || trainerIn === undefined)) {
      // do nothingclients
     } else if(trainerIn.clients.length === 0) {
       // do nothing
@@ -22,13 +25,11 @@ const prepdata = {
       for (let i = 0; i < trainerIn.clients.length; i++) {
                   
                    let clientid = trainerIn.clients[i].id;
+                   // clientdetail is an object that will hold deatlds about each individual client
                    const clientDetail = new Object();
                    logger.info('client id ', clientid);
-                   logger.info('get test ', trainers.getTestT());
-                   logger.info('get test ', membersStore.getTest());
-        
                    let membrz = membersStore.getMemberById(clientid);
-        
+                  // creates properties and sets value, for each new object created
                    clientDetail.id = membrz.id;
                    clientDetail.firstName = membrz.firstName;
                    clientDetail.lastName = membrz.lastName;
@@ -41,8 +42,10 @@ const prepdata = {
   return clientDetails
   },
   
-   
-   
+  // this is designed to populate each trainers list of client id. 
+  // it iterates each member object and locates that members selected trainer
+  // and if that trainer id matches the current trainer, that called this function
+  // then that members id is added to clients[] and retured to trainer.
   setTrainerClients(trainerId,all_members){
   let clients = [];
   const trainr = trainers.getTrainerById(trainerId);
@@ -86,6 +89,13 @@ const prepdata = {
     return ((idealBodyWeight <= (weight +2.0)) && (idealBodyWeight >= (weight -2.0)));
   },
   
+  
+  
+  //assessments is the list of existing Assessments,
+  // newAssessment is the new one we are about to add
+  // the existing assessments[] is sorted by date (function based on w3 schools example)
+  // one it is sorted the new Assessments weight is compared to the last Assessment in the assessments array
+  
   getTrend(assessments,newAssessment){
    let trend = true;
    logger.info('get trend ',trend);
@@ -104,8 +114,46 @@ const prepdata = {
    }
     
   return trend;
+  },
+  
+  
+  //when each assessment is created and being added to the assessments array.
+  // the members goals are checked to see if there are are open or missed goals
+  // any open/missed goals and categories are compared against each assessment field name and value
+  // and if current value equals goal then it is achieved, and achieved date recorded.
+  // only modelled for exact match, not exceeding target
+  
+  getGoalAchieved(membrId,newAssessment){
+// need to iterate through the open/missed goals, find goalcategory and goal
+// then compare with latest assessment
+    let attained = false;
+    const membrGoals = membersStore.getMemberById(membrId).goals;
+    let goalCategory = ""
+    let goalValue = 0.00;
+        for (let i = 0; i < membrGoals.length; i++) {
+            if(membrGoals[i].status !== "open" ) {
+               goalCategory = membrGoals[i].goalcategory;
+               goalValue = membrGoals[i].goal;
+               for(var propt in newAssessment){
+                   if ( propt === goalCategory ) {
+                       if ( newAssessment[propt] === goalValue) {
+                          membrGoals[i].status = "achieved";
+                          membrGoals[i].achieveddate = newAssessment.date;
+                          attained = true;
+                       } else {
+                          membrGoals[i].status = "missed";
+                       }
+                   }
+                }
+              
+              }
+    
+         }
+    membersStore.updateGoals()
+    return attained
   }
   
+
   
    
 };

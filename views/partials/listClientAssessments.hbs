@@ -20,11 +20,18 @@
         <td>
           {{upperarm}}
         </td>
+        <td>
+          {{waist}}
+        </td>
          <td>
            {{hips}}
         </td>
         <td>
-          {{trend}}
+           {{#if trend}}
+         <div class="ui green horizontal label">Improvement</div>
+          {{else}}
+           <div class="ui red horizontal label">Reverting</div>
+          {{/if}}
         </td>
          <td>
            {{comment}}

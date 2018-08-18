@@ -124,18 +124,32 @@ const member = {
   memberDataUpdate(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
     logger.debug('current logged data update, user= ',loggedInUser);
+    logger.debug('form body,  ',request.body);
     const membr = request.body;
-    loggedInUser.firstName = membr.firstName
-    loggedInUser.lastName = membr.lastName
+    if(membr.firstname !== ''){
+    loggedInUser.firstName = membr.firstname
+    }
+    if(membr.lastname !== ''){
+    loggedInUser.lastName = membr.lastname
+    }
+    if(membr.gender !== ''){
     loggedInUser.gender = membr.gender
+    }
+    if(membr.height !== ''){
     loggedInUser.height = membr.height
-    loggedInUser.startWeight = membr.startWeight
+    }
+    if(membr.startweight !== ''){
+    loggedInUser.startWeight = membr.startweight
+    }
+    if(membr.age !== ''){
     loggedInUser.age = membr.age
+    }
     members.updateMemberDetails();
     const loggedInMember2 = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Members Info Update',
-      membersData: loggedInMember2,
+     // membersData: loggedInMember2,
+      membersData: loggedInUser,
     };
     response.render('memberabout', viewData);
   },

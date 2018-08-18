@@ -23,7 +23,7 @@ router.get('/dashboardTT/:email', dashboard.indexTT);
 router.post('/member/:id/addAssessment', member.addAssessment);
 router.get('/member/:id/deleteassessment/:assessmentid', member.deleteAssessment);
 router.post('/member/:id/addcomment/:assessmentid', member.addComment);
-router.post('/member/:id/addgoal', member.addGoal);
+router.post('/member/:id/addgoal/', member.addGoal);
 router.get('/member/:id/deletegoal/:goalid', member.deleteGoal);
 
 router.get('/member/:id/assessment/:assessmentid', member.viewAssessment);

@@ -118,17 +118,17 @@
     },
     {
       "id": "04",
-      "firstName": "Swing",
-      "lastName": "Beethoven",
+      "firstName": "Majella",
+      "lastName": "",
       "email": "swing@eir",
       "password": "secret",
-      "height": 2.89,
-      "startWeight": 90,
+      "height": "",
+      "startWeight": "",
       "startWaist": 45,
       "startArm": 27,
       "startThigh": 45,
-      "age": 65,
-      "gender": "F",
+      "age": "",
+      "gender": "",
       "address": "26 Bakers Street London",
       "trainerid": "99",
       "assessments": [
@@ -159,12 +159,12 @@
       "email": "sean@eir",
       "password": "secret",
       "id": "05",
-      "height": 2.89,
-      "startWeight": 85,
+      "height": "2.89",
+      "startWeight": "83",
       "startWaist": 47,
       "startArm": 27,
       "startThigh": 45,
-      "age": 53,
+      "age": "47",
       "gender": "M",
       "address": "27 Bakers Street London",
       "trainerid": "99",
@@ -230,7 +230,7 @@
       "goals": []
     },
     {
-      "firstName": "Majella",
+      "firstName": "Majella Chuckles",
       "lastName": "Mullally",
       "gender": "F",
       "email": "maj@eir",
@@ -280,6 +280,18 @@
           "date": "2018-08-12T21:07:15.600Z",
           "comment": "",
           "trend": true
+        },
+        {
+          "weight": "56",
+          "chest": "32",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "31",
+          "hips": "32",
+          "id": "1bb82543-195e-44ea-9a90-1af13ae6c5f7",
+          "date": "2018-08-18T19:18:18.667Z",
+          "comment": "",
+          "trend": false
         }
       ],
       "goals": [
@@ -287,9 +299,18 @@
           "date": "2018-07-31T17:54:43.230Z",
           "goalcategory": "weight",
           "goal": "50",
-          "status": "open"
+          "status": "missed"
+        },
+        {
+          "goalcategory": "waist",
+          "goal": "31",
+          "id": "cc84b339-da8d-48de-bb04-3e47162b56a8",
+          "date": "2018-08-18T19:17:43.548Z",
+          "status": "achieved",
+          "achieveddate": "2018-08-18T19:18:18.667Z"
         }
-      ]
+      ],
+      "startWeight": "57"
     },
     {
       "firstName": "Martin",
