@@ -172,16 +172,47 @@ const member = {
   },
   
   
+  
+
+  
   addGoal(request, response) {
     let memberId = request.params.id;
+    let trainerId = request.params.trainerid;
+    // see where request comes from, trainer or member
+    const req_path = request.path;
+    let trainr = null;
+    let goalSetter = "";
+    let n = req_path.indexOf("trainer");
+    if (n < 0) {
+    logger.debug('Adding Goal set by Member', memberId);
+   
+    } else {
+      
+      logger.debug('Adding Goal for Member by Trainer',request.params.trainerid);
+      trainr = trainers.getTrainerById(request.params.trainerid);
+    }
+    
+    if(n < 0) {
+      goalSetter = "member";
+    } else {
+      goalSetter  = trainr.lastName;};
+    
     const newGoal = request.body;
     newGoal.id = uuid();
     newGoal.date = new Date();
     newGoal.status = "open";
-    logger.debug('Adding Goal for Member', memberId);
+    newGoal.origin = goalSetter;
+    
     members.addGoal(memberId,newGoal);
+    
+     if(n < 0) {
     response.redirect('/member/' + memberId);
+     } else {
+       response.redirect('/trainer_clients/' + trainerId);
+     }
+    
   },
+  
   
   deleteGoal(request, response) {
     let memberId = request.params.id;

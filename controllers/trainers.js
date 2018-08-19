@@ -150,7 +150,7 @@ const trainer = {
     response.render('trainerabout_t', viewData);
   },
   
-  
+  // review existing data prior to change
   review(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
     logger.debug('current logged data review ',loggedInUser.id);
@@ -174,6 +174,22 @@ deleteClient(request, response) {
     trainers.removeClient(trainerId, memberId);
     response.redirect('/trainer_clients/' + trainerId);
 },
+
+// review existing data prior to change
+  addTrainerGoal(request, response) {
+    const trainerId = request.params.trainerid;
+    const memberId = request.params.id;
+    const trainr = trainers.getTrainerById(trainerId);
+    const membr = members.getMemberById(memberId);
+    const viewData = {
+      title: 'Trainer Adding Goal for member',
+      trainersData: trainr,
+      membersData: membr,
+    };
+    
+    response.render('trainerGoal', viewData);
+  
+  },
   
   
 };

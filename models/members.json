@@ -308,6 +308,46 @@
           "date": "2018-08-18T19:17:43.548Z",
           "status": "achieved",
           "achieveddate": "2018-08-18T19:18:18.667Z"
+        },
+        {
+          "goalcategory": "thigh",
+          "goal": "30",
+          "id": "019bce78-6ee2-49e5-bd32-55a6e5f2d2b6",
+          "date": "2018-08-19T22:15:41.375Z",
+          "status": "open",
+          "origin": 0
+        },
+        {
+          "goalcategory": "upperarm",
+          "goal": "22",
+          "id": "9154f986-703f-445c-889f-a9b3cd838fe3",
+          "date": "2018-08-19T22:18:13.346Z",
+          "status": "open",
+          "origin": "Fanatic"
+        },
+        {
+          "goalcategory": "chest",
+          "goal": "35",
+          "id": "abb88885-e411-40ea-9cc4-bb473fcbb5be",
+          "date": "2018-08-19T22:19:26.981Z",
+          "status": "open",
+          "origin": "member"
+        },
+        {
+          "goalcategory": "chest",
+          "goal": "34",
+          "id": "bc1a2b6f-3abd-44b9-a28a-77c64ed78711",
+          "date": "2018-08-19T22:24:56.911Z",
+          "status": "open",
+          "origin": "Fanatic"
+        },
+        {
+          "goalcategory": "weight",
+          "goal": "45",
+          "id": "b792848c-6549-4d2b-9536-99699fd03d64",
+          "date": "2018-08-19T22:27:34.575Z",
+          "status": "open",
+          "origin": "Fanatic"
         }
       ],
       "startWeight": "57"
@@ -345,6 +385,13 @@
           "date": "2018-08-12T22:18:46.441Z",
           "goalcategory": "weight",
           "goal": "50",
+          "status": "open"
+        },
+        {
+          "goalcategory": "upperarm",
+          "goal": "56",
+          "id": "c3c47f0f-d738-4c70-a591-66f042233e23",
+          "date": "2018-08-19T22:06:57.295Z",
           "status": "open"
         }
       ]
