@@ -7,10 +7,17 @@
       "email": "ff@eir",
       "password": "secret",
       "gender": "M",
-      "speciality": "spinning",
-      "age": 35,
-      "bio": "work hard and eat less this is my motto. Up at 6 and bed at 12. Is this it, twenty years of educations, this is what i. Does my wallet look big in this! ",
-      "clients": []
+      "speciality": "Spinning out of control",
+      "age": "37",
+      "bio": "work hard and eat less this is my motto. Up at 6 and bed at 12. After twenty years of educations, is this it. \r\nDoes my wallet look big in this!       ",
+      "clients": [
+        {
+          "id": "09"
+        },
+        {
+          "id": "ed70b509-fea0-4296-9686-3d3030bdbcdd"
+        }
+      ]
     },
     {
       "id": "79",
@@ -19,9 +26,9 @@
       "email": "lb@eir",
       "password": "secret",
       "gender": "M",
-      "speciality": "Sofa workout",
-      "age": "35",
-      "bio": "three wise people once said that veg was the source of life . Was it true",
+      "speciality": "Sofa Tennis",
+      "age": "47",
+      "bio": "three wise people once said that veg was the source of life . Was it true ?  ",
       "clients": [
         {
           "id": "01"

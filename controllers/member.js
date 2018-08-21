@@ -124,18 +124,32 @@ const member = {
   memberDataUpdate(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
     logger.debug('current logged data update, user= ',loggedInUser);
+    logger.debug('form body,  ',request.body);
     const membr = request.body;
-    loggedInUser.firstName = membr.firstName
-    loggedInUser.lastName = membr.lastName
+    if(membr.firstname !== ''){
+    loggedInUser.firstName = membr.firstname
+    }
+    if(membr.lastname !== ''){
+    loggedInUser.lastName = membr.lastname
+    }
+    if(membr.gender !== ''){
     loggedInUser.gender = membr.gender
+    }
+    if(membr.height !== ''){
     loggedInUser.height = membr.height
-    loggedInUser.startWeight = membr.startWeight
+    }
+    if(membr.startweight !== ''){
+    loggedInUser.startWeight = membr.startweight
+    }
+    if(membr.age !== ''){
     loggedInUser.age = membr.age
+    }
     members.updateMemberDetails();
     const loggedInMember2 = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Members Info Update',
-      membersData: loggedInMember2,
+     // membersData: loggedInMember2,
+      membersData: loggedInUser,
     };
     response.render('memberabout', viewData);
   },
@@ -158,16 +172,47 @@ const member = {
   },
   
   
+  
+
+  
   addGoal(request, response) {
     let memberId = request.params.id;
+    let trainerId = request.params.trainerid;
+    // see where request comes from, trainer or member
+    const req_path = request.path;
+    let trainr = null;
+    let goalSetter = "";
+    let n = req_path.indexOf("trainer");
+    if (n < 0) {
+    logger.debug('Adding Goal set by Member', memberId);
+   
+    } else {
+      
+      logger.debug('Adding Goal for Member by Trainer',request.params.trainerid);
+      trainr = trainers.getTrainerById(request.params.trainerid);
+    }
+    
+    if(n < 0) {
+      goalSetter = "member";
+    } else {
+      goalSetter  = trainr.lastName;};
+    
     const newGoal = request.body;
     newGoal.id = uuid();
     newGoal.date = new Date();
     newGoal.status = "open";
-    logger.debug('Adding Goal for Member', memberId);
+    newGoal.origin = goalSetter;
+    
     members.addGoal(memberId,newGoal);
+    
+     if(n < 0) {
     response.redirect('/member/' + memberId);
+     } else {
+       response.redirect('/trainer_clients/' + trainerId);
+     }
+    
   },
+  
   
   deleteGoal(request, response) {
     let memberId = request.params.id;

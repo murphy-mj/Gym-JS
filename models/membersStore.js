@@ -7,7 +7,6 @@ const JsonStore = require('./json-store');
 const logger = require('../utils/logger');
 const prepdata2 = require('../utils/prepdata2');
 
-
 const membersStore = {
   store: new JsonStore('./models/members.json', {membersData:[]}),
   collection: 'membersData',
@@ -44,6 +43,8 @@ const membersStore = {
     const assess = membr.assessments;
     let tempTrend = prepdata2.getTrend(assess,newAssessment);
     newAssessment.trend = tempTrend;
+    let achievedGoal = prepdata2.getGoalAchieved(membr,newAssessment);
+    
     logger.debug("adding trend on Assessmt", newAssessment.trend);
     membr.assessments.push(newAssessment);
     this.store.save();
@@ -113,6 +114,11 @@ const membersStore = {
     _.remove(member1.goals, {id:goalId});
     this.store.save();
   },
+  
+  
+  updateGoals() {
+   this.store.membersData.goals.save();
+  }
   
 };
 

@@ -104,7 +104,55 @@ const prepdata = {
    }
     
   return trend;
+  },
+  
+   getGoalAchieved(membr,newAssessment){
+// need to iterate throgh the open goals, find goalcategory and goal
+// then compare with latest assessment
+    let attained = false;
+    const membrGoals = membr.goals;
+    let goalCategory = ""
+    let goalValue = 0.00;
+     logger.info('goals[] are ',membrGoals);
+        for (let i = 0; i < membrGoals.length; i++) {
+          logger.info('goal status is ',membrGoals[i].status);
+          
+          
+            if(membrGoals[i].status === "open" || membrGoals[i].status === "missed" ) {
+               goalCategory = membrGoals[i].goalcategory;
+               goalValue = membrGoals[i].goal;
+               logger.info('goal is ',goalValue);
+              
+               for(let propt in newAssessment){
+                 
+                 logger.info('new assess property outside ',propt);
+                 logger.info('new assess property outside [propt] ',newAssessment[propt] );
+                  logger.info('new assess property outside [propt] ',goalCategory);
+                   if (propt === goalCategory) {
+                     logger.info('in in property propt ',propt);
+                     logger.info('in in property goal cat ',goalCategory);
+                     
+                       if (newAssessment[propt] == goalValue) {
+                         logger.info('new assess property ',newAssessment[propt]);
+                         
+                          membrGoals[i].status = "achieved";
+                          logger.info('goal status ',membrGoals[i].status);
+                          membrGoals[i].achieveddate = newAssessment.date;
+                          attained = true;
+                       } else {
+                          membrGoals[i].status = "missed";
+                       }
+                   }
+                }
+              
+              }
+         }
+    return attained
   }
+  
+  
+  
+  
   
   
    
@@ -113,7 +161,6 @@ const prepdata = {
 
 
 module.exports = prepdata;
-
 
 
 

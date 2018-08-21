@@ -9,6 +9,7 @@
       <th>Last Name</th>
       <th>Age</th>
       <th>Gender</th>
+      <th>Add Goal</th>
       <th>Remove Client</th>
       <th>List Assessments</th>
     </tr>
@@ -31,7 +32,9 @@
         <td>
           {{gender}}
         </td>
-        
+        <td>
+          <a href="/trainer/{{../trainersData.id}}/addgoal/{{id}}" class="ui tiny blue button">Add Goal for Client</a>
+        </td>
          <td>
           <a href="/trainer/{{../trainersData.id}}/deleteClient/{{id}}" class="ui tiny red button">Remove Client</a>
         </td>

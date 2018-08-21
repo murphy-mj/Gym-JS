@@ -23,7 +23,8 @@ router.get('/dashboardTT/:email', dashboard.indexTT);
 router.post('/member/:id/addAssessment', member.addAssessment);
 router.get('/member/:id/deleteassessment/:assessmentid', member.deleteAssessment);
 router.post('/member/:id/addcomment/:assessmentid', member.addComment);
-router.post('/member/:id/addgoal', member.addGoal);
+
+router.post('/member/:id/addgoal/', member.addGoal);
 router.get('/member/:id/deletegoal/:goalid', member.deleteGoal);
 
 router.get('/member/:id/assessment/:assessmentid', member.viewAssessment);
@@ -45,6 +46,10 @@ router.get('/alltrainers', dashboard.indexTT);
 router.get('/trainer_clients/:trainerid', trainers.index);
 router.get('/trainer/group_clients/:trainerid', trainers.index);
 router.get('/trainer_clients', trainers.index);
+
+
+router.get('/trainer/:trainerid/addgoal/:id', trainers.addTrainerGoal);
+router.post('/trainer/:trainerid/postgoal/:id', member.addGoal);
 
 
 router.get('/trainer_clients_assess', trainers.index3);

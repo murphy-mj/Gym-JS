@@ -52,7 +52,7 @@ authenticate(request, response) {
     if (member) {
       let receivedemail = member.email;
       response.cookie('member', member.email);
-       response.cookie('trainer','');
+      response.cookie('trainer','');
       logger.info(`logging member in ${member.email}`);
       response.redirect('/dashboard');
     } else if (trainer) {
@@ -69,7 +69,8 @@ authenticate(request, response) {
 getCurrentUser(request) {
     logger.info('get current what object member email',request.cookies.member);
     logger.info('get current what object trainer email',request.cookies.trainer);
-    if(request.cookies.trainer !== ''){
+  //  if(request.cookies.trainer !== '' || request.cookies.trainer !== null || request.cookies.trainer !== undefined ){
+      if(request.cookies.trainer !== '' ){
       let userEmailt = request.cookies.trainer;
       logger.info('what object trainer object',trainersStore.getTrainerByEmail(userEmailt));
       return trainersStore.getTrainerByEmail(userEmailt);
