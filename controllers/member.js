@@ -9,6 +9,8 @@ const uuid = require('uuid');
 
 const member = {
   
+  
+  
   index(request, response) {
     const memberID = request.params.id;
     const viewData = {
@@ -40,47 +42,68 @@ const member = {
   },
   
   
+  ////  change required
+  
   deleteAssessment(request, response) {
     const memberId = request.params.id;
     const assessmentId = request.params.assessmentid;
     logger.debug('Deleting Assessment',assessmentId );
     members.removeAssessment(memberId, assessmentId);
+    // neds to be adjusted so can return either to memvers or trainers view
     response.redirect('/member/' + memberId);
   },
   
+  
+  
+  
+  // takes the basic information (key value pairs) from the Assessment form and add additional pairs
+  // such as id, date, comment, trend
+  // this assessment is then send to MembersStore to be added to the menbers assessment array
+  // plus additonal tests
   
   addAssessment(request, response) {
     const memberId = request.params.id;
     const newAssessment = request.body;
     newAssessment.id = uuid();
-    newAssessment.date = new Date();
+    newAssessment.date = new Date().toLocaleString('en-gbp');  // format date
     newAssessment.comment = "";
     newAssessment.trend = false;
-    logger.debug('Adding Assessment for Member', memberId);
+    logger.debug('Added additional info to Assessment, send to member for adding');
     members.addAssessment(memberId,newAssessment);
     response.redirect('/member/' + memberId);
   },
   
+  
+  
+  
+  // this generates data for memberassessment view, which shows the selected assessment and a comment input box for trainers comment
+  
   viewAssessment(request, response) {
     const memberId = request.params.id;
     const assessmentId = request.params.assessmentid;
-    const assessment = members.selectAssessment2(memberId,assessmentId);
-    
+    const assessment = members.selectAssessment2(memberId,assessmentId); 
     const viewData = {
       title: 'Members Info',
       membersData: members.getMemberById(memberId),
       assessment: assessment,
-    };
-    logger.debug('Requesting to view Assessment', assessment);
+     };
+    logger.debug('View select Assessment and add comment', assessment);
     response.render('memberassessment', viewData);
   },
   
   
+  
+  
+  
+  // only the trainer can add a comment to a members assessment
+  // mmber id, assessment id and comment from  the form are collated here
+  // the assessment is located from within the members assessment array and comment updated
+  
   addComment(request, response) {
-    // add comment to existing assessment
     const memberId = request.params.id;
     const assessmentId = request.params.assessmentid;
     const comment = request.body.comment;
+    // select Assessment2 uses javascript update 
     const assessment = members.selectAssessment2(memberId,assessmentId);
     assessment.comment = comment;
     logger.debug('Adding comment for Assessment',assessmentId);
@@ -98,15 +121,28 @@ const member = {
   
 
   
+  
+  
+  
+  // this provides the current logging in member data, so that it can be reviewed and updated
+  
   review(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
-      title: 'Members Info Review',
+      title: 'Members Info Review for update',
       membersData: accounts.getCurrentUser(request),
     };
-    logger.debug('current loggedIn data review ',loggedInUser.id);
+    logger.debug('current loggedIn data for review ',loggedInUser.id);
     response.render('memberData', viewData);
   },
+  
+  
+  
+  
+  
+  
+  // provides data for a short summary about current logging in member
+  // each member hold the selected trainer id
   
   aboutMember(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
@@ -121,11 +157,18 @@ const member = {
   
   },
   
+  
+  
+  
+  
+  
+  // this method is to facilitate the update of members personal details
+  // only current logged in member can update its deatils
+  
   memberDataUpdate(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
-    logger.debug('current logged data update, user= ',loggedInUser);
-    logger.debug('form body,  ',request.body);
     const membr = request.body;
+    // any key value pairs that have date will be updated
     if(membr.firstname !== ''){
     loggedInUser.firstName = membr.firstname
     }
@@ -145,49 +188,60 @@ const member = {
     loggedInUser.age = membr.age
     }
     members.updateMemberDetails();
-    const loggedInMember2 = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Members Info Update',
-     // membersData: loggedInMember2,
       membersData: loggedInUser,
     };
     response.render('memberabout', viewData);
   },
   
   
+  
+  
+  
+  
+  // only the member can select and change a trainer.
+  // whe you log in as a trainer, the members are analysed for their selected trainers
+  // each trainers array of members is updated then
+  // this method called from AboutTrainers partial, which gives a list of trainers and their speciality
+  // only the logged in member can select its trainer
+  // once selected the members details are updated
+  
   selectTrainer(request, response) {
     const loggedInUser = accounts.getCurrentUser(request); 
     let trainerId = request.params.trainerid;  
     loggedInUser.trainerid = trainerId;
     members.updateMemberDetails();
-    const loggedInUser2 = accounts.getCurrentUser(request);
-    logger.debug('post update trainer selected ',loggedInUser2.trainerid);
     const viewData = {
       title: 'Members Info Review',
       membersData: accounts.getCurrentUser(request),
       trainersData: trainers.getTrainerById(trainerId),
     };
+    logger.debug('update member with new trainer selected ',loggedInUser.trainerid);
+    // memberabout gives a small summary of the member, and the trainer that the member uses
     response.render('memberabout', viewData);
   
   },
   
   
   
-
+  
+  // A goal can be set by member, and the trainer selected by that member
+  // the model has a separate partial for the trainer and member to set goals,each will have its own request path
+  // by analysing the request path, i can determine who has set the goal
   
   addGoal(request, response) {
     let memberId = request.params.id;
     let trainerId = request.params.trainerid;
-    // see where request comes from, trainer or member
-    const req_path = request.path;
     let trainr = null;
     let goalSetter = "";
+    // see where request comes from, trainer or member
+    const req_path = request.path;
+    // if trainer not found, it will return -1
     let n = req_path.indexOf("trainer");
     if (n < 0) {
-    logger.debug('Adding Goal set by Member', memberId);
-   
+       logger.debug('Adding Goal set by Member', memberId);
     } else {
-      
       logger.debug('Adding Goal for Member by Trainer',request.params.trainerid);
       trainr = trainers.getTrainerById(request.params.trainerid);
     }
@@ -195,16 +249,23 @@ const member = {
     if(n < 0) {
       goalSetter = "member";
     } else {
-      goalSetter  = trainr.lastName;};
-    
+      goalSetter  = trainr.lastName;
+    };
+    // newGoal object created with key value pairs from Goal form
+    // additional key value pairs added
+    // Gdate (target date) from form, is a html date and does not provide a time stamp, so it cannot be converted easily to a number (valueOf())
+    // by wrapping the html date in a date object, get around this. basic idea came from stack overflow after a lot of searching and trial and error
+    // toLocate gives a neater date format
     const newGoal = request.body;
+    newGoal.Gdate = new Date(request.body.Gdate).toLocaleString('en-gbp');
     newGoal.id = uuid();
-    newGoal.date = new Date();
+    newGoal.date = new Date().toLocaleString('en-gbp');
     newGoal.status = "open";
     newGoal.origin = goalSetter;
-    
+    // goal object and member id is sent to MembersStore model to be added to the Members data object 
     members.addGoal(memberId,newGoal);
     
+    // depending on where the original call came from, we need to return to that area eg Trainer or member
      if(n < 0) {
     response.redirect('/member/' + memberId);
      } else {
@@ -213,6 +274,10 @@ const member = {
     
   },
   
+  
+  
+  
+  // goal can only be deleted by the member
   
   deleteGoal(request, response) {
     let memberId = request.params.id;

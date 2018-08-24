@@ -38,14 +38,13 @@ const membersStore = {
   },
   
   addAssessment(memberId,newAssessment) {
-    logger.debug("adding Assess on member id",memberId); 
     const membr = this.getMemberById(memberId);
     const assess = membr.assessments;
+    // looks at prior Assessment for weight only
     let tempTrend = prepdata2.getTrend(assess,newAssessment);
     newAssessment.trend = tempTrend;
     let achievedGoal = prepdata2.getGoalAchieved(membr,newAssessment);
-    
-    logger.debug("adding trend on Assessmt", newAssessment.trend);
+    logger.debug("adding Assess on member id",memberId); 
     membr.assessments.push(newAssessment);
     this.store.save();
   },
@@ -73,6 +72,8 @@ const membersStore = {
   
   
   // using javascript
+  // returns the selected assessment from the array of assessments of the member
+  
   selectAssessment2(memberid,assessmentid){
     const membr = this.getMemberById(memberid);
     var assess = {};

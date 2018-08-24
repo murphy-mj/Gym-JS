@@ -2,7 +2,7 @@
 <form class="ui segment form" action="/trainer/{{trainersData.id}}/postgoal/{{membersData.id}}" method="POST">
   
   
-  <div class="two fields">
+  <div class="three fields">
     <div class="field">
          Select your Goal Category
          <select name="goalcategory">
@@ -14,10 +14,17 @@
            <option>upperarm</option>
         </select>
    </div>
+    
     <div class="field">
       <label>Goal</label>
       <input placeholder="0.00" type="number" name="goal">
     </div>
+    
+     <div class="field">
+      <label>Goal Date</label>
+    <input type="date" name="Gdate"/>
+    </div>
+  
   </div>
   
   <button class="ui blue submit button" >Add Goal</button>

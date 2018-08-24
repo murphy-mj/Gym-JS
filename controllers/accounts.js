@@ -37,9 +37,11 @@ signup(request, response) {
 register(request, response) {
     const member = request.body;
     const assessments = [];
+    const goals = [];
     member.id = uuid();
     member.trainerid = "99";
     member.assessments = assessments;
+    member.goals = goals;
     membersStore.addMember(member);
     logger.info(`registering ${member.email}`);
     response.redirect('/login');

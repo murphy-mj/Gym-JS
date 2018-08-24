@@ -225,9 +225,93 @@
       "startThigh": 45,
       "address": "dunmore",
       "id": "c6fce0d9-f264-495c-a87a-dd80678f2f94",
-      "trainerid": "99",
-      "assessments": [],
-      "goals": []
+      "trainerid": "79",
+      "assessments": [
+        {
+          "weight": "55",
+          "chest": "45",
+          "thigh": "30",
+          "upperarm": "20",
+          "waist": "32",
+          "hips": "34",
+          "id": "90973053-132d-498d-a470-e64ef827926d",
+          "date": "2018-08-23T21:22:46.568Z",
+          "comment": "",
+          "trend": true,
+          "level": "info",
+          "message": "new Assessment"
+        },
+        {
+          "weight": "55",
+          "chest": "48",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "32",
+          "hips": "30",
+          "id": "7c8d9c0e-1599-4280-a5ed-f113a885f9ef",
+          "date": "2018-08-23T21:25:02.844Z",
+          "comment": "",
+          "trend": true,
+          "level": "info",
+          "message": "new Assessment"
+        },
+        {
+          "weight": "56",
+          "chest": "45",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "34",
+          "hips": "34",
+          "id": "7b0205e4-8af6-416a-a265-a3264a7925a1",
+          "date": "2018-08-23T21:27:29.565Z",
+          "comment": "",
+          "trend": false,
+          "level": "info",
+          "message": "new Assessment"
+        },
+        {
+          "weight": "56",
+          "chest": "45",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "32",
+          "hips": "34",
+          "id": "edd12e86-bf4c-43cc-b9bb-02a84390428e",
+          "date": "2018-08-23T21:32:39.055Z",
+          "comment": "well you are so lucky that you changed trainer",
+          "trend": true,
+          "level": "debug",
+          "message": "Requesting to view Assessment"
+        },
+        {
+          "weight": "55",
+          "chest": "45",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "32",
+          "hips": "34",
+          "id": "9f0dd4a1-2961-4da9-8fdf-5eef38ab1558",
+          "date": "2018-8-23 21:56:06",
+          "comment": "",
+          "trend": true,
+          "level": "info",
+          "message": "new Assessment"
+        }
+      ],
+      "goals": [
+        {
+          "goalcategory": "weight",
+          "goal": "55",
+          "Gdate": "2018-8-20 00:00:00",
+          "id": "6fd26333-bc18-4c7b-bd3e-d3f13e7b3e30",
+          "date": "2018-8-23 21:55:38",
+          "status": "achieved outside time frame",
+          "origin": "member",
+          "achieveddate": "2018-8-23 21:56:06"
+        }
+      ],
+      "startWeight": "56",
+      "age": "52"
     },
     {
       "firstName": "Majella Chuckles",
@@ -314,7 +398,7 @@
           "goal": "30",
           "id": "019bce78-6ee2-49e5-bd32-55a6e5f2d2b6",
           "date": "2018-08-19T22:15:41.375Z",
-          "status": "open",
+          "status": "missed",
           "origin": 0
         },
         {
@@ -322,7 +406,7 @@
           "goal": "22",
           "id": "9154f986-703f-445c-889f-a9b3cd838fe3",
           "date": "2018-08-19T22:18:13.346Z",
-          "status": "open",
+          "status": "missed",
           "origin": "Fanatic"
         },
         {
@@ -330,15 +414,16 @@
           "goal": "35",
           "id": "abb88885-e411-40ea-9cc4-bb473fcbb5be",
           "date": "2018-08-19T22:19:26.981Z",
-          "status": "open",
-          "origin": "member"
+          "status": "achieved",
+          "origin": "member",
+          "achieveddate": "2018-08-21T18:21:31.560Z"
         },
         {
           "goalcategory": "chest",
           "goal": "34",
           "id": "bc1a2b6f-3abd-44b9-a28a-77c64ed78711",
           "date": "2018-08-19T22:24:56.911Z",
-          "status": "open",
+          "status": "missed",
           "origin": "Fanatic"
         },
         {
@@ -346,8 +431,9 @@
           "goal": "45",
           "id": "b792848c-6549-4d2b-9536-99699fd03d64",
           "date": "2018-08-19T22:27:34.575Z",
-          "status": "open",
-          "origin": "Fanatic"
+          "status": "achieved",
+          "origin": "Fanatic",
+          "achieveddate": "2018-08-21T18:21:31.560Z"
         }
       ],
       "startWeight": "57"
@@ -376,7 +462,7 @@
           "hips": "34",
           "id": "e5e2e397-6dc2-414b-8a60-eddd84da9fc1",
           "date": "2018-08-12T22:18:46.441Z",
-          "comment": "",
+          "comment": "well well  not so good",
           "trend": true
         }
       ],
@@ -393,8 +479,76 @@
           "id": "c3c47f0f-d738-4c70-a591-66f042233e23",
           "date": "2018-08-19T22:06:57.295Z",
           "status": "open"
+        },
+        {
+          "goalcategory": "hips",
+          "goal": "35",
+          "Gdate": null,
+          "id": "341d2226-9cde-407c-b122-68d41997eaa2",
+          "date": "2018-08-23T21:34:42.799Z",
+          "status": "open",
+          "origin": "Fanatic"
         }
       ]
+    },
+    {
+      "firstName": "Tommy",
+      "lastName": "Murphy",
+      "gender": "M",
+      "email": "tm@eir",
+      "password": "secret",
+      "height": "2.2",
+      "startweight": "56",
+      "age": "12",
+      "address": "221 Bakers Street, London",
+      "startarm": "10",
+      "startthigh": "25",
+      "id": "c9cb016c-b3dc-46e8-944a-d236fbcb62a5",
+      "trainerid": "99",
+      "assessments": [
+        {
+          "weight": "56",
+          "chest": "23",
+          "thigh": "25",
+          "upperarm": "10",
+          "waist": "23",
+          "hips": "24",
+          "id": "d54087cf-eec7-402a-91d9-1f2384872378",
+          "date": "2018-8-24 19:08:30",
+          "comment": "",
+          "trend": true,
+          "level": "info",
+          "message": "new Assessment"
+        },
+        {
+          "weight": "57",
+          "chest": "23",
+          "thigh": "23",
+          "upperarm": "10",
+          "waist": "23",
+          "hips": "24",
+          "id": "f04d7679-c9b8-4ee2-becc-ae47783eb142",
+          "date": "2018-8-24 19:21:04",
+          "comment": "",
+          "trend": true,
+          "level": "info",
+          "message": "new Assessment"
+        }
+      ],
+      "goals": [
+        {
+          "goalcategory": "weight",
+          "goal": "57",
+          "Gdate": "2018-8-31 00:00:00",
+          "id": "4b8307d9-0599-4f53-9626-742fbb30abde",
+          "date": "2018-8-24 19:05:04",
+          "status": "achieved within time frame",
+          "origin": "member",
+          "achieveddate": "2018-8-24 19:21:04"
+        }
+      ],
+      "level": "info",
+      "message": "what object member object"
     }
   ]
 }
