@@ -22,12 +22,13 @@ const prepdata = {
       // do nothing
     } else {
     logger.info('trainerIn ', trainerIn.clients);
+      // loop through the array of member id's that are contained in the client [] of the trainer
       for (let i = 0; i < trainerIn.clients.length; i++) {
                   
                    let clientid = trainerIn.clients[i].id;
-                   // clientdetail is an object that will hold deatlds about each individual client
+                   // clientDetail is an object that will hold deatlds about an individual client
+                   // a new one is created during each loop
                    const clientDetail = new Object();
-                   logger.info('client id ', clientid);
                    let membrz = membersStore.getMemberById(clientid);
                   // creates properties and sets value, for each new object created
                    clientDetail.id = membrz.id;
@@ -35,6 +36,7 @@ const prepdata = {
                    clientDetail.lastName = membrz.lastName;
                    clientDetail.age = membrz.age;
                    clientDetail.gender = membrz.gender;
+                   // new object added to the array clientDetails
                    clientDetails.push(clientDetail);
         }
     }
@@ -42,10 +44,13 @@ const prepdata = {
   return clientDetails
   },
   
+  
+  
   // this is designed to populate each trainers list of client id. 
   // it iterates each member object and locates that members selected trainer
   // and if that trainer id matches the current trainer, that called this function
   // then that members id is added to clients[] and retured to trainer.
+  
   setTrainerClients(trainerId,all_members){
   let clients = [];
   const trainr = trainers.getTrainerById(trainerId);
@@ -115,6 +120,8 @@ const prepdata = {
     
   return trend;
   },
+  
+  
   
   
   //when each assessment is created and being added to the assessments array.

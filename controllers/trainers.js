@@ -9,13 +9,17 @@ const accounts = require('./accounts');
 const trainer = {
   
    // index is used to show the selected trainer's client list
+  // the request may come from the logged in trainer, or from the group trainer view
+  // as trainer only holds the id of each member that has selected him/her, a method is called, getTrainerClients 
+  // which returnds an object of the needed member details
+  
   index(request, response) {
     const contnt = request.path;
-    logger.debug('whats requested path, group or individual', contnt);
+    logger.debug('The requested path, group or individual', contnt);
     let n = contnt.indexOf("group");
     logger.debug('index of group ',n);
     let trainerID = request.params.trainerid;
-    logger.debug('Trainer id from index = ',trainerID);
+    logger.debug('Trainer id for index is = ',trainerID);
     
     if(trainerID === null || trainerID === "" || trainerID === undefined){
       let loggedInUser = accounts.getCurrentUser(request);
@@ -32,7 +36,8 @@ const trainer = {
       trainersData: trainersData,
       clientdetails: clientDetails
     };
-    
+    // trainerclients is called within the individal logged in trainer
+    // group_trainerclients is called within the group trainer menu
     if(n === -1){
     response.render('trainerclients', viewData);
     } else {
@@ -42,27 +47,62 @@ const trainer = {
   },
  
   
-  index3(request, response) {
-    logger.info('index 3');
-    const loggedInUser = accounts.getCurrentUser(request);
-
-    const viewData = {
-      title: 'Members Dashboard',
-      membersData: members.getMemberById(loggedInUser.id),
-      assessments: loggedInUser.assessments,
+  
+  
+   // as clients select trainers, this function loops through all trainers 
+  // and updates ach trainers client array with any client that has selected that trainer as trainer.
+  
+  
+  
+  indexTT(request, response) {
+    const allmembers = members.getAllMembers();
+    const alltrainers = trainers.getAllTrainers();
+    logger.info('all trainer updated for latest member trainer selection');
+    if ((alltrainers === null || alltrainers === 'undefined')) {
+         // do nothingclients
+    } else {
+           for (let t = 0; t < alltrainers.length; t++) {
+                alltrainers[t].clients = prepdata.setTrainerClients(alltrainers[t].id,allmembers);
+           }
+    }
+    const viewData3 = {
+      title: 'Trainers Dashboard t',
+      trainersData: alltrainers,
     };
-    logger.info('about to render tranerclients',loggedInUser.id);
-    response.render('trainerclients', viewData);
+    logger.info('about to render dashboradTrainers', alltrainers);
+     response.render('dashboardTrainers', viewData3);
   },
   
   
   
-  index4(request, response) {
+  
+ // index3(request, response) {
+ //   logger.info('index 3');
+ //   const loggedInUser = accounts.getCurrentUser(request);
+//
+//    const viewData = {
+ //     title: 'Members Dashboard',
+//      membersData: members.getMemberById(loggedInUser.id),
+ //     assessments: loggedInUser.assessments,
+ //   };
+//    logger.info('about to render tranerclients',loggedInUser.id);
+ //   response.render('trainerclients', viewData);
+//  },
+  
+  
+  
+//  index4(request, response) {
+  
+  // this is method is only called by a trainer 
+  // member id is got from request parameter, the trainer object gleamed from logged in trainer
+  // from this parameter, an member object is retrived, as assessments from is an array within this object. this is retrived as a separate object
+  
+  
+  
+   listMemberAssessments(request, response) {
      const memberID = request.params.id;
-    logger.debug('index 4 Member id index = ',memberID);
      const membr = members.getMemberById(memberID);
-    const assessments = membr.assessments;
-     logger.debug('index 4 Member',assessments);
+     const assessments = membr.assessments;
      let loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: 'Trainer Info',
@@ -70,12 +110,13 @@ const trainer = {
       membersData: membr,
       assessments: assessments,
     };
+    logger.debug('List Member Assessments');
     response.render('memberassessments', viewData);
   },
   
 
-  
-  
+  // this trainer bio, can be requested from the individual trainer menu or the group menu
+  // source of request is used to determine which view is selected
   
   about(request, response) {
     //looking at source of request
@@ -83,9 +124,11 @@ const trainer = {
     logger.debug('whats content', contnt);
     let n = contnt.indexOf("group");
     logger.debug('is this group ',n);
+    
     let trainerID = request.params.trainerid;
     logger.debug('Trainer id from Paramterers = ',trainerID);
     
+    // if no trainer supplied as a parameter, depending on the source of the request
     if(trainerID === null || trainerID === undefined || trainerID === '' ){
       let loggedInUser = accounts.getCurrentUser(request);
       trainerID = loggedInUser.id;
@@ -93,10 +136,13 @@ const trainer = {
     }
     
     const trainersData = trainers.getTrainerById(trainerID);
+    
     const viewData = {
       title: 'About Trainer',
       trainersData: trainersData,
     };
+    // either the selected trainer's data or the current loggin trainer data is sent to be displayed
+    // selected will be group_t
     
     if(n === -1){
     response.render('trainerabout_t', viewData);
@@ -104,6 +150,8 @@ const trainer = {
       response.render('group_trainerabout', viewData);
     }
   },
+  
+  
   
   
   
@@ -116,6 +164,10 @@ const trainer = {
     };
     response.render('trainerabout', viewData);
   },
+  
+  
+  
+  
   
   
   trainerDataUpdate(request, response) {
@@ -150,6 +202,11 @@ const trainer = {
     response.render('trainerabout_t', viewData);
   },
   
+  
+  
+  
+  
+  
   // review existing data prior to change
   review(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
@@ -166,6 +223,8 @@ const trainer = {
   
   
   
+  
+  
 deleteClient(request, response) {
     const trainerId = request.params.trainerid;
     const memberId = request.params.memberid;
@@ -175,6 +234,9 @@ deleteClient(request, response) {
     response.redirect('/trainer_clients/' + trainerId);
 },
 
+  
+  
+  
 // review existing data prior to change
   addTrainerGoal(request, response) {
     const trainerId = request.params.trainerid;
