@@ -23,6 +23,7 @@ const member = {
     };
     
     logger.debug('About to render member, for selected Member id = ',memberID);
+    
     response.render('member', viewData);
   },
   
@@ -49,10 +50,14 @@ const member = {
     const assessmentId = request.params.assessmentid;
     logger.debug('Deleting Assessment',assessmentId );
     members.removeAssessment(memberId, assessmentId);
-    // neds to be adjusted so can return either to memvers or trainers view
+    // neds to be adjusted so can return either to mombers or trainers view
+    const loggedInUser = accounts.getCurrentUser(request);
+    if(loggedInUser.id === memberId){
     response.redirect('/member/' + memberId);
+    } else {
+    response.redirect('/member/' + memberId + '/listassessments');
+    }
   },
-  
   
   
   
@@ -187,6 +192,9 @@ const member = {
     if(membr.age !== ''){
     loggedInUser.age = membr.age
     }
+    if(membr.photo !== ''){
+    loggedInUser.photo = membr.photo
+    }
     members.updateMemberDetails();
     const viewData = {
       title: 'Members Info Update',
@@ -283,7 +291,7 @@ const member = {
     let memberId = request.params.id;
     const goalId = request.params.goalid;
     logger.debug('Deleting Goal',goalId );
-    members.removeGoal(memberId, goalId);
+    members.removeGoal2(memberId, goalId);
     response.redirect('/member/' + memberId);
   },
   

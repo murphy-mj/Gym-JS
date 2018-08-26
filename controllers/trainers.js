@@ -52,8 +52,6 @@ const trainer = {
    // as clients select trainers, this function loops through all trainers 
   // and updates ach trainers client array with any client that has selected that trainer as trainer.
   
-  
-  
   indexTT(request, response) {
     const allmembers = members.getAllMembers();
     const alltrainers = trainers.getAllTrainers();
@@ -153,14 +151,15 @@ const trainer = {
   
   
   
-  
+  // used by member to select a trainer from a list of trainers
   
   aboutAllTrainers(request, response) {
     logger.debug('about all trainers');
-    
+    const loggedInUser = accounts.getCurrentUser(request);
     const viewData = {
       title: 'About current logged in Trainer',
       trainersData: trainers.getAllTrainers(),
+      membersData: loggedInUser,
     };
     response.render('trainerabout', viewData);
   },
@@ -194,6 +193,10 @@ const trainer = {
     if(trainr.bio !== ''){
       loggedInUser.bio = trainr.bio;
     }
+    if(trainr.photo !== ''){
+      loggedInUser.photo = trainr.photo;
+    }
+    
     trainers.updateTrainerDetails();
     const viewData = {
       title: 'Trainers Info Update',

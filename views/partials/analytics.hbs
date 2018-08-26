@@ -5,12 +5,11 @@
     
     <div class = "ui statistic">
         <div class = "text value">
-          <i class="user icon"></i><br>
+          <br>
+          <img class="ui avatar image" src="{{membersData.photo}}">
+          <br>
           {{membersData.firstName}}  {{membersData.lastName}}
         </div>
-         <div class"label">
-            Member Name
-         </div>  
     </div>
     
     <div class = "ui statistic">                  
@@ -36,14 +35,15 @@
        </div>  
     </div>
       
-    <div class = "ui statistic">                                       
-       <div class = "text value">
-         <i class="doctor icon"></i><br>
-         {{bmicategory}}
-      </div>
+    <div class = "ui statistic"> 
+      <br>
       <div class"label">
         Category
-      </div>         
+      </div>    
+       <div class = "text value">
+         {{bmicategory}}
+      </div>
+           
     </div>
       
   </div>

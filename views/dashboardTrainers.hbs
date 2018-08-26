@@ -1,13 +1,17 @@
 {{> menu_trainer id="alltrainers"}}
 
 {{#each trainersData}}
-  <section class="ui segment">
-    <h2 class="ui header">
-      {{firstName}}
-    </h2>
-    <p> id: {{id}} Last Name: {{lastName}}</p>
-    <a href="/trainer/group_clients/{{id}}"> View Clients </a>
-    <a href="/trainer/group_about/{{id}}"> About Trainer </a>
-  </section>
+
+<div class="ui card">
+  <div class="image">
+    <img class="ui small image" src="{{photo}}">
+  </div>
+  <div class="content">
+    <a class="header"> {{firstName}} {{lastName}}</a>
+  </div>
+    <a href="/trainer/group_clients/{{id}}"> View Clients </a><br> 
+  <a href="/trainer/group_about/{{id}}"> About Trainer </a>
+   
+</div>
 {{/each}}
   

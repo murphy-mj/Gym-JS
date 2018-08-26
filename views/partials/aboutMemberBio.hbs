@@ -1,0 +1,29 @@
+
+<script>
+var domain_name = {{$membersData.photo}}
+
+document.getElementById('image_id').setAttribute('src',domain_name)
+</script>
+  
+<div class="ui card">
+  <div class="image">
+    <img class="someClass" src="{{membersData.photo}}">
+  </div>
+  <div class="content">
+    <a class="header">{{membersData.firstName}} {{membersData.lastName}}</a>
+    <div class="meta">
+      <span class="date">Joined in {{membersData.jDate}}</span>
+    </div>
+    <div class="description">
+    bio: {{membersData.bio}}<br>
+    {{membersData.firstName}}'s chosen trainer is {{trainersData.firstName}}  {{trainersData.lastName}}
+    The trainer's speciality is {{trainersData.speciality}} 
+    </div>
+    
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+    </a>
+  </div>
+</div>

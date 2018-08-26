@@ -47,6 +47,7 @@ register(request, response) {
     const assessments = [];
     const goals = [];
     member.id = uuid();
+    member.jDate = new Date();
     member.trainerid = "99";
     member.assessments = assessments;
     member.goals = goals;

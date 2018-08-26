@@ -6,6 +6,9 @@
       "lastName": "Beethoven",
       "email": "sonatas@eir",
       "password": "secret",
+      "jDate": "2016-8-31 00:00:00",
+      "bio": "I like doing stuff oustide",
+      "photo": "https://semantic-ui.com/images/avatar2/large/molly.png",
       "height": "2.54",
       "startWeight": "78",
       "startWaist": 45,
@@ -56,6 +59,9 @@
       "lastName": "Beethoven",
       "email": "stephen@eir",
       "password": "secret",
+      "jDate": "2015-8-31 00:00:00",
+      "bio": "I don't like doing stuff oustide",
+      "photo": "https://semantic-ui.com/images/avatar2/large/elyse.png",
       "height": 2.65,
       "startWeight": 79,
       "startWaist": 45,
@@ -104,6 +110,9 @@
       "lastName": "Beethoven",
       "email": "rock@eir",
       "password": "secret",
+      "jDate": "2017-8-31 00:00:00",
+      "bio": "I like playing music with my friends ",
+      "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "height": 2.89,
       "startWeight": 90,
       "startWaist": 45,
@@ -117,47 +126,13 @@
       "goals": []
     },
     {
-      "id": "04",
-      "firstName": "Majella",
-      "lastName": "",
-      "email": "swing@eir",
-      "password": "secret",
-      "height": "",
-      "startWeight": "",
-      "startWaist": 45,
-      "startArm": 27,
-      "startThigh": 45,
-      "age": "",
-      "gender": "",
-      "address": "26 Bakers Street London",
-      "trainerid": "99",
-      "assessments": [
-        {
-          "weight": "56",
-          "chest": "44",
-          "thigh": "33",
-          "upperarm": "21",
-          "waist": "31",
-          "hips": "32",
-          "id": "35",
-          "date": "2017-07-31T17:54:43.230Z",
-          "comment": ""
-        }
-      ],
-      "goals": [
-        {
-          "date": "2017-07-31T17:54:43.230Z",
-          "goalcategory": "weight",
-          "goal": "50",
-          "status": "open"
-        }
-      ]
-    },
-    {
       "firstName": "Sean",
       "lastName": "Mullally",
       "email": "sean@eir",
       "password": "secret",
+      "jDate": "2017-5-31 00:00:00",
+      "bio": "I like playing jogging with my friends ",
+      "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "id": "05",
       "height": "2.89",
       "startWeight": "83",
@@ -218,6 +193,9 @@
       "gender": "M",
       "email": "martin@eir",
       "password": "secret",
+      "jDate": "2018-3-31 00:00:00",
+      "bio": "I am that is all",
+      "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "height": "3",
       "startweight": "78",
       "startWaist": 45,
@@ -268,6 +246,18 @@
           "trend": true,
           "level": "debug",
           "message": "Requesting to view Assessment"
+        },
+        {
+          "weight": "56",
+          "chest": "45",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "32",
+          "hips": "45",
+          "id": "a97fd8dc-0709-47c5-b176-2430193ac300",
+          "date": "2018-8-26 10:29:08",
+          "comment": "",
+          "trend": true
         }
       ],
       "goals": [
@@ -286,11 +276,14 @@
       "age": "52"
     },
     {
-      "firstName": "Majella Chuckles",
+      "firstName": "Majella",
       "lastName": "Mullally",
       "gender": "F",
       "email": "maj@eir",
       "password": "secret",
+      "jDate": "2016-7-31 00:00:00",
+      "bio": "seems day is too short for me",
+      "photo": "https://semantic-ui.com/images/avatar2/large/molly.png",
       "height": "3",
       "startweight": "67",
       "age": "37",
@@ -310,77 +303,9 @@
           "id": "62",
           "date": "2018-07-31T17:54:43.230Z",
           "comment": "doing well"
-        },
-        {
-          "weight": "56",
-          "chest": "45",
-          "thigh": "34",
-          "upperarm": "20",
-          "waist": "34",
-          "hips": "32",
-          "id": "575a90b6-fd17-4c1c-b425-2ad415e9c420",
-          "date": "2018-08-12T14:21:45.541Z",
-          "comment": "",
-          "trend": false,
-          "level": "debug",
-          "message": "adding Assess on member"
-        },
-        {
-          "weight": "55",
-          "chest": "45",
-          "thigh": "34",
-          "upperarm": "20",
-          "waist": "34",
-          "hips": "32",
-          "id": "51f95b35-842c-4389-975b-74ab5871f7d2",
-          "date": "2018-08-12T21:07:15.600Z",
-          "comment": "",
-          "trend": true
-        },
-        {
-          "weight": "56",
-          "chest": "32",
-          "thigh": "34",
-          "upperarm": "20",
-          "waist": "31",
-          "hips": "32",
-          "id": "1bb82543-195e-44ea-9a90-1af13ae6c5f7",
-          "date": "2018-08-18T19:18:18.667Z",
-          "comment": "",
-          "trend": false
         }
       ],
       "goals": [
-        {
-          "date": "2018-07-31T17:54:43.230Z",
-          "goalcategory": "weight",
-          "goal": "50",
-          "status": "missed"
-        },
-        {
-          "goalcategory": "waist",
-          "goal": "31",
-          "id": "cc84b339-da8d-48de-bb04-3e47162b56a8",
-          "date": "2018-08-18T19:17:43.548Z",
-          "status": "achieved",
-          "achieveddate": "2018-08-18T19:18:18.667Z"
-        },
-        {
-          "goalcategory": "thigh",
-          "goal": "30",
-          "id": "019bce78-6ee2-49e5-bd32-55a6e5f2d2b6",
-          "date": "2018-08-19T22:15:41.375Z",
-          "status": "missed",
-          "origin": 0
-        },
-        {
-          "goalcategory": "upperarm",
-          "goal": "22",
-          "id": "9154f986-703f-445c-889f-a9b3cd838fe3",
-          "date": "2018-08-19T22:18:13.346Z",
-          "status": "missed",
-          "origin": "Fanatic"
-        },
         {
           "goalcategory": "chest",
           "goal": "35",
@@ -406,6 +331,15 @@
           "status": "achieved",
           "origin": "Fanatic",
           "achieveddate": "2018-08-21T18:21:31.560Z"
+        },
+        {
+          "goalcategory": "upperarm",
+          "goal": "25",
+          "Gdate": "2018-8-31 00:00:00",
+          "id": "bc5aacb2-9fa3-405a-835c-8eea22c0ce48",
+          "date": "2018-8-26 11:18:58",
+          "status": "open",
+          "origin": "member"
         }
       ],
       "startWeight": "57"
@@ -416,6 +350,9 @@
       "gender": "M",
       "email": "mm@eir",
       "password": "secret",
+      "jDate": "2017-1-31 00:00:00",
+      "bio": "just a liitle more time",
+      "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "height": "3",
       "startweight": "80",
       "age": "37",
@@ -424,20 +361,7 @@
       "startthigh": "26",
       "id": "ed70b509-fea0-4296-9686-3d3030bdbcdd",
       "trainerid": "78",
-      "assessments": [
-        {
-          "weight": "78",
-          "chest": "32",
-          "thigh": "34",
-          "upperarm": "20",
-          "waist": "32",
-          "hips": "34",
-          "id": "e5e2e397-6dc2-414b-8a60-eddd84da9fc1",
-          "date": "2018-08-12T22:18:46.441Z",
-          "comment": "well well  not so good",
-          "trend": true
-        }
-      ],
+      "assessments": [],
       "goals": [
         {
           "date": "2018-08-12T22:18:46.441Z",
@@ -469,6 +393,9 @@
       "gender": "M",
       "email": "tm@eir",
       "password": "secret",
+      "jDate": "2018-1-31 00:00:00",
+      "bio": "I like playing being the best",
+      "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "height": "2.2",
       "startweight": "56",
       "age": "12",

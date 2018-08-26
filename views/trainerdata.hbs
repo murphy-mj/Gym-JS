@@ -26,14 +26,21 @@
       <input placeholder={{trainersData.speciality}} type="text"  name="speciality">
     </div>
   </div>
-  <div class="three fields">
+  <div class="two fields">
         <div class="field">
           <label>Biographical Content:</label>
         </div>
         <div class="ui fields">
-          <textarea rows="6" cols ="20" name="bio">{{trainersData.bio}} </textarea>
+          <textarea rows="6" cols ="30" name="bio">{{trainersData.bio}} </textarea>
         </div>
   </div>
+        <div class="field">
+          <label>Source Image file:</label>
+        </div>
+        <div class="ui fields">
+          <input placeholder={{trainersData.photo}} type="text"  name="photo">
+        </div>
+  
   <button class="ui blue submit button">Update</button>
 </form>
 

@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 
 const accounts =  require('./controllers/accounts.js');
-const dashboard = require('./controllers/dashboard.js');
+// const dashboard = require('./controllers/dashboard.js');
 const initial_screen = require('./controllers/initial_screen.js');
 const member = require('./controllers/member.js')
 const trainers = require('./controllers/trainers.js')
