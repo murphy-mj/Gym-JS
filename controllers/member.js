@@ -13,12 +13,21 @@ const member = {
   
   index(request, response) {
     const memberID = request.params.id;
+    let member1 = members.getMemberById(memberID);
+    let currentBMI = 0;
+        if(member1.assessments.length === 0) {
+    currentBMI =  analy.getInitialBMI(member1);
+    }  else {
+     currentBMI = analy.getBMI(member1.assessments,member1.height);
+    };
+    
+    
     const viewData = {
       title: 'Members Dashboard',
       membersData: members.getMemberById(memberID),
       assessments: members.getMemberById(memberID).assessments,
-      bmi: analy.getBMI(members.getMemberById(memberID).assessments,members.getMemberById(memberID).height),
-      bmicategory: analy.getBMICategory(analy.getBMI(members.getMemberById(memberID).assessments,members.getMemberById(memberID).height)),
+      bmi: currentBMI,
+      bmicategory: analy.getBMICategory(currentBMI),
       idealbodyweight: analy.isIdealBodyWeight(members.getMemberById(memberID)),
     };
     
@@ -30,11 +39,17 @@ const member = {
   
   indexM(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
+    let currentBMI = 0;
+        if(loggedInUser.assessments.length === 0) {
+    currentBMI =  analy.getInitialBMI(loggedInUser);
+    }  else {
+     currentBMI = analy.getBMI(members.getMemberById(loggedInUser.id).assessments,loggedInUser.height);
+    };
     const viewData = {
       title: 'Members Dashboard, index M',
       membersData: members.getMemberById(loggedInUser.id),
       assessments: loggedInUser.assessments,
-      bmi: analy.getBMI(members.getMemberById(loggedInUser.id).assessments,loggedInUser.height),
+      bmi: currentBMI,
       bmicategory: analy.getBMICategory(analy.getBMI(members.getMemberById(loggedInUser.id).assessments,loggedInUser.height)),
       idealbodyweight: analy.isIdealBodyWeight(members.getMemberById(loggedInUser.id)),
     };

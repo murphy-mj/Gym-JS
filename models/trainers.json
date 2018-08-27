@@ -9,12 +9,9 @@
       "gender": "M",
       "speciality": "Spinning out of control",
       "age": "55",
-       "photo": "https://semantic-ui.com/images/avatar/large/steve.jpg",
+      "photo": "https://semantic-ui.com/images/avatar/large/steve.jpg",
       "bio": "work hard and eat less this is my motto. Up at 6 and bed at 12. After twenty years of educations, is this it. \r\nDoes my wallet look big in this!        ",
       "clients": [
-        {
-          "id": "09"
-        },
         {
           "id": "ed70b509-fea0-4296-9686-3d3030bdbcdd"
         }
@@ -28,7 +25,7 @@
       "password": "secret",
       "gender": "M",
       "speciality": "Sofa Tennis",
-      "photo":"https://semantic-ui.com/images/avatar2/large/matthew.png",
+      "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "age": "47",
       "bio": "three wise people once said that veg was the source of life . Was it true ?  ",
       "clients": [
@@ -45,21 +42,18 @@
     },
     {
       "id": "99",
-      "firstName": "non selected",
-      "lastName": "trainer",
+      "firstName": "default",
+      "lastName": "non trainer",
       "email": "na@eir",
       "password": "secret",
       "gender": "M",
       "speciality": "n/a",
-      "photo":"https://semantic-ui.com/images/avatar/large/elliot.jpg",
+      "photo": "https://semantic-ui.com/images/avatar/large/elliot.jpg",
       "age": 99,
-      "bio": "",
+      "bio": " The is the default, for members who have not selected a trainer",
       "clients": [
         {
           "id": "02"
-        },
-        {
-          "id": "04"
         },
         {
           "id": "05"

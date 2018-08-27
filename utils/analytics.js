@@ -11,7 +11,6 @@ const analytics = {
 
   
    getBMI(assessments,height) {
-    logger.info('get test ', members.getTest());
     let bmiAss = 0.000;
     if ((assessments === null || assessments === 'undefined')) {
      bmiAss = 0.000;
@@ -61,7 +60,12 @@ const analytics = {
   
   isIdealBodyWeight(member){
     let idealBodyWeight = 0;
-    let weight = member.startweight;
+    let weight = 0;
+    if(member.assessments.length == 0) {
+    weight = member.startweight;
+    } else {
+    weight =  member.assessments[member.assessments.length -1].weight;
+    }
     let height = convt.convertMeterstoInches(member.height);
     let fivefeet = 60.00;
     
@@ -82,46 +86,18 @@ const analytics = {
     logger.debug('ideal body weight = ',idealBodyWeight);
     logger.debug('weight = ',(weight));
     return ((idealBodyWeight <= (weight +2.0)) && (idealBodyWeight >= (weight -2.0)));
+  },
+  
+  
+  getInitialBMI(member) {
+    let bmiAss = 0.000;
+    let weight2 = member.startWeight;
+    let bmih = (member.height * member.height);
+    bmiAss = (weight2 / bmih);
+    return (Math.round(bmiAss*100)/100);
   }
   
-  
-  
-  
-//  getGoalAchieved(membrId,newAssessment){
-// need to iterate throgh the open goals, find gaolcategory ang goal
-// then compare with latest assessment
- //   let attained = false;
-//    const membrGoals = members.getMemberById(membrId).goals;
-  //  let goalCategory = ""
-//    let goalValue = 0.00;
-//        for (let i = 0; i < membrGoals.length; i++) {
-//            if(membrGoals[i].status !== "open" ) {
-   //            goalCategory = membrGoals[i].goalcategory;
-     //          goalValue = membrGoals[i].goal;
-   //            for(var propt in newAssessment){
-      //             if ( propt === goalCategory ) {
-       //                if ( newAssessment[propt] === goalValue) {
-        //                  membrGoals[i].status = "achieved";
-          //                membrGoals[i].achieveddate = newAssessment.date;
-           //               attained = true;
-            ///           } else {
-           //               membrGoals[i].status = "missed";
-          //             }
-           //        }
-           //     }
-              
-            //  }
-    //
-    //     }
-//    members.updateGoals()
-///    return attained
-//  }
-  
-  
-  
-  
-  
-  
+
    
 };
 

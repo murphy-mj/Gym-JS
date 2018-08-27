@@ -264,12 +264,11 @@
         {
           "goalcategory": "weight",
           "goal": "55",
-          "Gdate": "2018-8-20 00:00:00",
-          "id": "6fd26333-bc18-4c7b-bd3e-d3f13e7b3e30",
-          "date": "2018-8-23 21:55:38",
-          "status": "achieved outside time frame",
-          "origin": "member",
-          "achieveddate": "2018-8-23 21:56:06"
+          "Gdate": "2018-8-31 00:00:00",
+          "id": "3c6c8cb0-9ec7-490d-955a-2b5cbf160b2e",
+          "date": "2018-8-27 22:44:35",
+          "status": "open",
+          "origin": "member"
         }
       ],
       "startWeight": "56",
@@ -291,7 +290,7 @@
       "startarm": "25",
       "startthigh": "27",
       "id": "09",
-      "trainerid": "78",
+      "trainerid": "99",
       "assessments": [
         {
           "weight": "56",
@@ -382,6 +381,15 @@
           "Gdate": null,
           "id": "341d2226-9cde-407c-b122-68d41997eaa2",
           "date": "2018-08-23T21:34:42.799Z",
+          "status": "open",
+          "origin": "Fanatic"
+        },
+        {
+          "goalcategory": "weight",
+          "goal": "57",
+          "Gdate": "2018-8-7 00:00:00",
+          "id": "99550058-b574-4cb3-96f6-0ce47a046ccb",
+          "date": "2018-8-27 22:37:17",
           "status": "open",
           "origin": "Fanatic"
         }

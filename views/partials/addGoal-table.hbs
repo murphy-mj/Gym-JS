@@ -1,5 +1,18 @@
+<script>
 
-<form class="ui segment form" action="/member/{{membersData.id}}/addgoal" method="POST">
+function validateForm() {
+    var a = document.forms["goalform"]["goal"].value;
+    if (a  <= 0) {
+        alert("goal must be greater than zero");
+        return false;
+    }
+
+}
+
+</script>
+
+
+<form name = "goalform" class="ui segment form" onsubmit="return validateForm()" action="/member/{{membersData.id}}/addgoal" method="POST">
   
   
   <div class="three fields">

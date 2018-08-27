@@ -43,6 +43,8 @@ signup(request, response) {
 // it then redirects back to login screen, for new member to login.
   
 register(request, response) {
+    const femalePhoto = "https://semantic-ui.com/images/avatar2/large/kristy.png"
+    const malePhoto = "https://semantic-ui.com/images/avatar/large/daniel.jpg"
     const member = request.body;
     const assessments = [];
     const goals = [];
@@ -51,6 +53,13 @@ register(request, response) {
     member.trainerid = "99";
     member.assessments = assessments;
     member.goals = goals;
+    if(member.photo == '' || member.photo == null  ) {
+      if(member.gender = 'M') {
+         member.photo = malePhoto;
+      } else {
+        member.photo = femalePhoto;
+      }
+    }
     membersStore.addMember(member);
     logger.info(`registering ${member.email}`);
     response.redirect('/login');
