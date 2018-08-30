@@ -4,7 +4,6 @@ const express = require('express');
 const router = express.Router();
 
 const accounts =  require('./controllers/accounts.js');
-// const dashboard = require('./controllers/dashboard.js');
 const initial_screen = require('./controllers/initial_screen.js');
 const member = require('./controllers/member.js')
 const trainers = require('./controllers/trainers.js')
@@ -46,7 +45,7 @@ router.get('/trainer_member', trainers.aboutAllTrainers);
 
 
 router.get('/trainer/:trainerid/selectTrainer', member.selectTrainer);
-router.get('/member/:id', member.index);
+router.get('/member/:id', member.indexM);
 
 
 // calling a listing of clients that has been assigned to a trainer

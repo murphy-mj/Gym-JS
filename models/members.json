@@ -29,19 +29,6 @@
           "id": "4e4ec411-8be7-4de7-9360-84c8794e410f",
           "date": "2018-08-03T20:56:30.484Z",
           "comment": "need a bit of work"
-        },
-        {
-          "weight": "56",
-          "chest": "44",
-          "thigh": "30",
-          "upperarm": "20",
-          "waist": "34",
-          "hips": "35",
-          "id": "604abe93-09e9-405f-a226-d7724b8b42e4",
-          "date": "2018-08-06T20:15:37.736Z",
-          "comment": "doing well",
-          "level": "debug",
-          "message": "Requesting Assessment for Assessment"
         }
       ],
       "goals": [
@@ -283,12 +270,12 @@
       "jDate": "2016-7-31 00:00:00",
       "bio": "seems day is too short for me",
       "photo": "https://semantic-ui.com/images/avatar2/large/molly.png",
-      "height": "3",
-      "startweight": "67",
+      "height": "2.22",
+      "startWeight": "57",
       "age": "37",
       "address": "dunmore",
-      "startarm": "25",
-      "startthigh": "27",
+      "startArm": "25",
+      "startThigh": "27",
       "id": "09",
       "trainerid": "99",
       "assessments": [
@@ -340,8 +327,7 @@
           "status": "open",
           "origin": "member"
         }
-      ],
-      "startWeight": "57"
+      ]
     },
     {
       "firstName": "Martin",
@@ -353,11 +339,11 @@
       "bio": "just a liitle more time",
       "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "height": "3",
-      "startweight": "80",
+      "startWeight": "80",
       "age": "37",
       "address": "226 Caulfield",
-      "startarm": "20",
-      "startthigh": "26",
+      "startArm": "20",
+      "startThigh": "26",
       "id": "ed70b509-fea0-4296-9686-3d3030bdbcdd",
       "trainerid": "78",
       "assessments": [],
@@ -405,53 +391,46 @@
       "bio": "I like playing being the best",
       "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "height": "2.2",
-      "startweight": "56",
+      "startWeight": "56",
       "age": "12",
       "address": "221 Bakers Street, London",
-      "startarm": "10",
-      "startthigh": "25",
+      "startArm": "10",
+      "startThigh": "25",
       "id": "c9cb016c-b3dc-46e8-944a-d236fbcb62a5",
-      "trainerid": "99",
+      "trainerid": "78",
       "assessments": [
         {
-          "weight": "56",
-          "chest": "23",
-          "thigh": "25",
-          "upperarm": "10",
-          "waist": "23",
-          "hips": "24",
-          "id": "d54087cf-eec7-402a-91d9-1f2384872378",
-          "date": "2018-8-24 19:08:30",
+          "weight": "58",
+          "chest": "32",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "32",
+          "hips": "34",
+          "id": "1c86e249-6def-40e7-a435-856355015962",
+          "date": "2018-8-29 22:26:38",
           "comment": "",
-          "trend": true,
-          "level": "info",
-          "message": "new Assessment"
-        },
-        {
-          "weight": "57",
-          "chest": "23",
-          "thigh": "23",
-          "upperarm": "10",
-          "waist": "23",
-          "hips": "24",
-          "id": "f04d7679-c9b8-4ee2-becc-ae47783eb142",
-          "date": "2018-8-24 19:21:04",
-          "comment": "",
-          "trend": true,
-          "level": "info",
-          "message": "new Assessment"
+          "trend": true
         }
       ],
       "goals": [
         {
           "goalcategory": "weight",
-          "goal": "57",
-          "Gdate": "2018-8-31 00:00:00",
-          "id": "4b8307d9-0599-4f53-9626-742fbb30abde",
-          "date": "2018-8-24 19:05:04",
+          "goal": "60",
+          "Gdate": "2018-9-28 00:00:00",
+          "id": "c87e4ab6-fb0e-4454-9048-65856275457b",
+          "date": "2018-8-29 22:25:55",
+          "status": "not achieved yet, but within timeframe",
+          "origin": "member"
+        },
+        {
+          "goalcategory": "chest",
+          "goal": "32",
+          "Gdate": "2018-9-26 00:00:00",
+          "id": "308112aa-1f9a-42b3-bca5-73249460bfb0",
+          "date": "2018-8-29 22:26:13",
           "status": "achieved within time frame",
           "origin": "member",
-          "achieveddate": "2018-8-24 19:21:04"
+          "achieveddate": "2018-8-29 22:26:38"
         }
       ],
       "level": "info",

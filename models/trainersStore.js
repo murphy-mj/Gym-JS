@@ -105,16 +105,11 @@ const trainersStore = {
     trainerDetails.clients.push(memberId);
     this.store.save();
     
-  },
+  }
   
   
   
-  
-  
-  
-  getTestT(){
-  return "46";
-  },
+
   
 };
 

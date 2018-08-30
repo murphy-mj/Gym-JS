@@ -11,39 +11,48 @@ const member = {
   
   
   
-  index(request, response) {
-    const memberID = request.params.id;
-    let member1 = members.getMemberById(memberID);
-    let currentBMI = 0;
-        if(member1.assessments.length === 0) {
-    currentBMI =  analy.getInitialBMI(member1);
-    }  else {
-     currentBMI = analy.getBMI(member1.assessments,member1.height);
-    };
-    
-    
-    const viewData = {
-      title: 'Members Dashboard',
-      membersData: members.getMemberById(memberID),
-      assessments: members.getMemberById(memberID).assessments,
-      bmi: currentBMI,
-      bmicategory: analy.getBMICategory(currentBMI),
-      idealbodyweight: analy.isIdealBodyWeight(members.getMemberById(memberID)),
-    };
-    
-    logger.debug('About to render member, for selected Member id = ',memberID);
-    
-    response.render('member', viewData);
-  },
+//  index(request, response) {
+//    const memberID = request.params.id;
+ //   let member1 = members.getMemberById(memberID);
+//
+//    let currentBMI = 0;
+  //      if(member1.assessments.length === 0) {
+ //   currentBMI =  analy.getInitialBMI(member1);
+//    }  else {
+//     currentBMI = analy.getBMI(member1.assessments,member1.height);
+//    };
+//   
+//    
+//    const viewData = {
+//      title: 'Members Dashboard',
+//      membersData: members.getMemberById(memberID),
+//      assessments: members.getMemberById(memberID).assessments,
+//      bmi: currentBMI,
+  //    bmicategory: analy.getBMICategory(currentBMI),
+ //     idealbodyweight: analy.isIdealBodyWeight(members.getMemberById(memberID)),
+ //   };
+  //  
+  //  logger.debug('About to render member, for selected Member id = ',memberID);
+ //   
+//    response.render('member', viewData);
+//  },
+  
+  
+  
+  
+  
   
   
   indexM(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
     let currentBMI = 0;
+       
         if(loggedInUser.assessments.length === 0) {
-    currentBMI =  analy.getInitialBMI(loggedInUser);
+          currentBMI =  analy.getInitialBMI(loggedInUser);
+          logger.debug('indexM loggedinuser no assessments');
     }  else {
-     currentBMI = analy.getBMI(members.getMemberById(loggedInUser.id).assessments,loggedInUser.height);
+          currentBMI = analy.getBMI(members.getMemberById(loggedInUser.id).assessments,parseFloat(loggedInUser.height));
+          logger.debug('indexM loggedinuser has assessments');
     };
     const viewData = {
       title: 'Members Dashboard, index M',
@@ -53,7 +62,7 @@ const member = {
       bmicategory: analy.getBMICategory(analy.getBMI(members.getMemberById(loggedInUser.id).assessments,loggedInUser.height)),
       idealbodyweight: analy.isIdealBodyWeight(members.getMemberById(loggedInUser.id)),
     };
-    logger.info('about to render member for logging in member',loggedInUser.id);
+    logger.info('about to render member for logged in member',loggedInUser.id);
     response.render('member', viewData);
   },
   
@@ -170,6 +179,7 @@ const member = {
     const viewData = {
       title: 'Members Info Review',
       membersData: accounts.getCurrentUser(request),
+      currentWeight: members.getCurrentWeight(loggedInUser),
       trainersData: trainers.getTrainerById(trainerId),
     };
     logger.debug('about member, member id ',loggedInUser.id);
@@ -214,6 +224,7 @@ const member = {
     const viewData = {
       title: 'Members Info Update',
       membersData: loggedInUser,
+      currentWeight: members.getCurrentWeight(loggedInUser),
     };
     response.render('memberabout', viewData);
   },
@@ -238,6 +249,7 @@ const member = {
     const viewData = {
       title: 'Members Info Review',
       membersData: accounts.getCurrentUser(request),
+      currentWeight: members.getCurrentWeight(loggedInUser),
       trainersData: trainers.getTrainerById(trainerId),
     };
     logger.debug('update member with new trainer selected ',loggedInUser.trainerid);

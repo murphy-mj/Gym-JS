@@ -16,9 +16,9 @@ const membersStore = {
     return this.store.findAll(this.collection);
   },
 
-  getTest(){
-    return "46";
-  },
+  //getTest(){
+ //   return "46";
+ // },
 
   getMemberById(id) {
     return this.store.findOneBy(this.collection, { id: id });
@@ -57,6 +57,8 @@ const membersStore = {
     membr.assessments.push(newAssessment);
     this.store.save();
   },
+  
+  
   
   
   // removing assessment using lodash
@@ -213,7 +215,36 @@ removeAssessmentold(id, assessmentId) {
   
   updateGoals() {
    this.store.membersData.goals.save();
-  }
+  },
+  
+  
+  
+  getCurrentWeight(member1){
+    let currentWeight = 0.0;
+    
+    // in oder to pick the weight from the latest assessment stored, the assessment array needs to be sorted
+  //  assessments.length-1 will then return the last assessment
+   if(member1.assessments.length >1) {
+      member1.assessments.sort(function(a,b) {
+             let dateA = new Date(a.date), dateB = new Date(b.date);
+             return dateA - dateB;
+      });
+   }
+    
+   if(member1.assessments.length < 1){
+      currentWeight = parseInt(member1.startWeight);
+   } else {
+     currentWeight = parseInt(member1.assessments[member1.assessments.length-1].weight);
+   }
+    
+  return currentWeight;
+  },
+  
+  
+  
+  
+  
+  
   
 };
 

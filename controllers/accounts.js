@@ -104,7 +104,7 @@ getCurrentUser(request) {
       return trainersStore.getTrainerByEmail(userEmailt);
     } else {  
            let userEmailm = request.cookies.member;
-           logger.info('current user is a trainer',membersStore.getMemberByEmail(userEmailm).lastName);
+           logger.info('current user is a Member',membersStore.getMemberByEmail(userEmailm).lastName);
            return membersStore.getMemberByEmail(userEmailm);
           }
 },

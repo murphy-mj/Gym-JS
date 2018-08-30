@@ -2,7 +2,7 @@
   "trainersData": [
     {
       "id": "78",
-      "firstName": "Fitness",
+      "firstName": "Fitness J",
       "lastName": "Fanatic",
       "email": "ff@eir",
       "password": "secret",
@@ -10,12 +10,8 @@
       "speciality": "Spinning out of control",
       "age": "55",
       "photo": "https://semantic-ui.com/images/avatar/large/steve.jpg",
-      "bio": "work hard and eat less this is my motto. Up at 6 and bed at 12. After twenty years of educations, is this it. \r\nDoes my wallet look big in this!        ",
-      "clients": [
-        {
-          "id": "ed70b509-fea0-4296-9686-3d3030bdbcdd"
-        }
-      ]
+      "bio": "work hard and eat less this is my motto. Up at 6 and bed at 12. After twenty years of educations, is this it. \r\nDoes my wallet look big in this!         ",
+      "clients": []
     },
     {
       "id": "79",
@@ -36,13 +32,13 @@
           "id": "03"
         },
         {
-          "id": "c6fce0d9-f264-495c-a87a-dd80678f2f94"
+          "id": "c9cb016c-b3dc-46e8-944a-d236fbcb62a5"
         }
       ]
     },
     {
       "id": "99",
-      "firstName": "default",
+      "firstName": "",
       "lastName": "non trainer",
       "email": "na@eir",
       "password": "secret",
@@ -59,7 +55,10 @@
           "id": "05"
         },
         {
-          "id": "c9cb016c-b3dc-46e8-944a-d236fbcb62a5"
+          "id": "09"
+        },
+        {
+          "id": "ed70b509-fea0-4296-9686-3d3030bdbcdd"
         }
       ]
     }
