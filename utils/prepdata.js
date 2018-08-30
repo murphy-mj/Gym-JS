@@ -22,12 +22,13 @@ const prepdata = {
       // do nothing
     } else {
     logger.info('trainerIn ', trainerIn.clients);
+      // loop through the array of member id's that are contained in the client [] of the trainer
       for (let i = 0; i < trainerIn.clients.length; i++) {
                   
                    let clientid = trainerIn.clients[i].id;
-                   // clientdetail is an object that will hold deatlds about each individual client
+                   // clientDetail is an object that will hold deatlds about an individual client
+                   // a new one is created during each loop
                    const clientDetail = new Object();
-                   logger.info('client id ', clientid);
                    let membrz = membersStore.getMemberById(clientid);
                   // creates properties and sets value, for each new object created
                    clientDetail.id = membrz.id;
@@ -35,6 +36,7 @@ const prepdata = {
                    clientDetail.lastName = membrz.lastName;
                    clientDetail.age = membrz.age;
                    clientDetail.gender = membrz.gender;
+                   // new object added to the array clientDetails
                    clientDetails.push(clientDetail);
         }
     }
@@ -42,10 +44,13 @@ const prepdata = {
   return clientDetails
   },
   
+  
+  
   // this is designed to populate each trainers list of client id. 
   // it iterates each member object and locates that members selected trainer
   // and if that trainer id matches the current trainer, that called this function
   // then that members id is added to clients[] and retured to trainer.
+  
   setTrainerClients(trainerId,all_members){
   let clients = [];
   const trainr = trainers.getTrainerById(trainerId);
@@ -87,7 +92,7 @@ const prepdata = {
       }
     
     return ((idealBodyWeight <= (weight +2.0)) && (idealBodyWeight >= (weight -2.0)));
-  },
+  }
   
   
   
@@ -96,25 +101,26 @@ const prepdata = {
   // the existing assessments[] is sorted by date (function based on w3 schools example)
   // one it is sorted the new Assessments weight is compared to the last Assessment in the assessments array
   
-  getTrend(assessments,newAssessment){
-   let trend = true;
-   logger.info('get trend ',trend);
-   if(assessments.length >1) {
-      assessments.sort(function(a,b) {
-             let dateA = new Date(a.date), dateB = new Date(b.date);
-             return dateA - dateB;
-      });
-   }
-   if(assessments.length <= 1){
-     // do nothing
-   } else if(assessments[assessments.length-1].weight >= newAssessment.weight) {
-      trend = true;
-   } else if(assessments[assessments.length-1].weight < newAssessment.weight)  {
-     trend = false;
-   }
+//  getTrend(assessments,newAssessment){
+//   let trend = true;
+//   logger.info('get trend ',trend);
+//   if(assessments.length >1) {
+//      assessments.sort(function(a,b) {
+//             let dateA = new Date(a.date), dateB = new Date(b.date);
+ //            return dateA - dateB;
+//      });
+//   }
+//   if(assessments.length <= 1){
+ //    // do nothing
+ //  } else if(assessments[assessments.length-1].weight >= newAssessment.weight) {
+//      trend = true;
+ //  } else if(assessments[assessments.length-1].weight < newAssessment.weight)  {
+ //    trend = false;
+//   }
     
-  return trend;
-  },
+//  return trend;
+//  },
+  
   
   
   //when each assessment is created and being added to the assessments array.
@@ -123,35 +129,35 @@ const prepdata = {
   // and if current value equals goal then it is achieved, and achieved date recorded.
   // only modelled for exact match, not exceeding target
   
-  getGoalAchieved(membrId,newAssessment){
+//  getGoalAchieved(membrId,newAssessment){
 // need to iterate through the open/missed goals, find goalcategory and goal
 // then compare with latest assessment
-    let attained = false;
-    const membrGoals = membersStore.getMemberById(membrId).goals;
-    let goalCategory = ""
-    let goalValue = 0.00;
-        for (let i = 0; i < membrGoals.length; i++) {
-            if(membrGoals[i].status !== "open" ) {
-               goalCategory = membrGoals[i].goalcategory;
-               goalValue = membrGoals[i].goal;
-               for(var propt in newAssessment){
-                   if ( propt === goalCategory ) {
-                       if ( newAssessment[propt] === goalValue) {
-                          membrGoals[i].status = "achieved";
-                          membrGoals[i].achieveddate = newAssessment.date;
-                          attained = true;
-                       } else {
-                          membrGoals[i].status = "missed";
-                       }
-                   }
-                }
+ //   let attained = false;
+//    const membrGoals = membersStore.getMemberById(membrId).goals;
+//    let goalCategory = ""
+//    let goalValue = 0.00;
+//        for (let i = 0; i < membrGoals.length; i++) {
+//            if(membrGoals[i].status !== "open" ) {
+  //             goalCategory = membrGoals[i].goalcategory;
+ //              goalValue = membrGoals[i].goal;
+  //             for(var propt in newAssessment){
+  //                 if ( propt === goalCategory ) {
+  //                     if ( newAssessment[propt] === goalValue) {
+  //                        membrGoals[i].status = "achieved";
+  //                        membrGoals[i].achieveddate = newAssessment.date;
+ //                         attained = true;
+  //                     } else {
+  //                        membrGoals[i].status = "missed";
+  //                     }
+   //                }
+    //            }
               
-              }
-    
-         }
-    membersStore.updateGoals()
-    return attained
-  }
+    //          }
+  // / 
+   //      }
+//    membersStore.updateGoals()
+//    return attained
+//  }
   
 
   

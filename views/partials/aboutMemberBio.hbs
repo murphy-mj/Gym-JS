@@ -1,0 +1,36 @@
+
+
+  
+<div class="ui card">
+  
+  <div class="image">
+    <img class="someClass" src="{{membersData.photo}}">
+  </div>
+  
+  <div class="content">
+    <a class="header">
+      {{membersData.firstName}} {{membersData.lastName}}
+    </a>
+    <div class="meta">
+      <span class="date">Joined in {{membersData.jDate}}</span>
+    </div>
+    <div class="description">
+    bio: {{membersData.bio}}<br>
+    {{membersData.firstName}} is {{membersData.age}} years old<br>
+      
+    {{membersData.firstName}}'s starting weight was {{membersData.startWeight}}, 
+      it is now {{currentWeight}} <br>
+      
+    {{#if trainersData.firstName}} 
+    {{membersData.firstName}}'s chosen trainer is {{trainersData.firstName}}  {{trainersData.lastName}}
+    The trainer's speciality is {{trainersData.speciality}} 
+      {{else}}
+      {{membersData.firstName}}'s has not chosen a trainer to work with.    
+      {{/if}}
+    </div>
+    
+  </div>
+  
+
+  
+</div>

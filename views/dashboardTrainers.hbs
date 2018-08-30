@@ -1,13 +1,33 @@
 {{> menu_trainer id="alltrainers"}}
 
+<div class = "ui raised padded center aligned container segment">
+<div class="ui cards">
 {{#each trainersData}}
-  <section class="ui segment">
-    <h2 class="ui header">
-      {{firstName}}
-    </h2>
-    <p> id: {{id}} Last Name: {{lastName}}</p>
-    <a href="/trainer/group_clients/{{id}}"> View Clients </a>
-    <a href="/trainer/group_about/{{id}}"> About Trainer </a>
-  </section>
-{{/each}}
+  <div class="ui card">
   
+    <div class="image">
+       <img class="ui small image" src="{{photo}}">
+    </div>
+  
+    <div class="content">
+       <a class="header"> {{firstName}} {{lastName}}</a>
+    </div>
+  <div class="extra content">
+    <div class="ui two buttons">
+    <a href="/trainer/group_clients/{{id}}"><div class="ui basic green button">View Clients</div> </a><br> 
+    <a href="/trainer/group_about/{{id}}"><div class="ui basic blue button">About Trainer</div> </a>
+    </div>
+  </div>
+    
+</div>
+{{/each}}
+</div>
+</div>
+<div class="ui raised segment">
+  <p>
+    These are the two trainers employed at our Gym. "Default Non Trainer", is the default trainer 
+    that is asssigned to each new member upon registering with the Gym. Only a memeber can choose a trainer.
+    But the trainer has the option of not accepting the member as a client. When rejected Member will be 
+    re allocated to the default non trainer.
+  </p>
+</div>

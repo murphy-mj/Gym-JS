@@ -1,6 +1,60 @@
 {{> menu_initial id="register"}}
 
-<form class="ui stacked segment form" action="/register" method="POST">
+<script>
+
+function validateForm() {
+    var a = document.forms["memberform"]["firstName"].value;
+    if (a == "") {
+        alert("First Name must be filled out");
+        return false;
+    }
+    var b = document.forms["memberform"]["lastName"].value;
+    if (b == "") {
+        alert("Last Name must be filled out");
+        return false;
+    }
+    var c = document.forms["memberform"]["email"].value;
+    if (c == "") {
+        alert("your email must be filled out");
+        return false;
+    }
+    var d = document.forms["memberform"]["password"].value;
+    if (d == "") {
+        alert("your password must be filled out");
+        return false;
+    }
+    var e = document.forms["memberform"]["address"].value;
+    if (e == "") {
+        alert("your address must be filled out");
+        return false;
+    }
+    var f = document.forms["memberform"]["height"].value;
+    if (f == "" || f <= 0 || f >= 2.15) {
+        alert("your height must be apositive number, and less than 2.1 meters");
+        return false;
+    }
+    var g = document.forms["memberform"]["startweight"].value;
+    if (g == "" || g < 45 || g >= 126) {
+        alert("your starting weight must be a positive number, greater than 44 and less than 126 kgs");
+        return false;
+    }
+    var h = document.forms["memberform"]["age"].value;
+    if (h == "" || h < 16 || h > 100) {
+        alert("your age must be a positive number, must be greater than 15 and less the 100");
+        return false;
+    }
+  
+  
+  
+  
+  
+  
+}
+
+</script>
+
+
+<form name ="memberform" on class="ui stacked segment form" onsubmit="return validateForm()" action="/register" method="POST">
   <h3 class="ui header">Register</h3>
   <div class="two fields">
     <div class="field">
@@ -27,7 +81,7 @@
   <div class="three fields">
     <div class="field">
       <label>Height</label>
-      <input placeholder="2.45 meters" type="number"  name="height">
+      <input placeholder="2.45 meters" type="text"  name="height">
     </div>
     <div class="field">
       <label>Starting Weight</label>
@@ -35,7 +89,7 @@
     </div>
     <div class="field">
       <label>Age</label>
-      <input placeholder="21" type="text"  name="age">
+      <input placeholder="21" type="number"  name="age">
     </div>
   </div>
   <div class="field">
@@ -45,12 +99,17 @@
   <div class="two fields">
     <div class="field">
       <label>Starting Arm</label>
-      <input placeholder="2.45 meters" type="number"  name="startarm">
+      <input placeholder="20 cms" type="number"  name="startarm">
     </div>
     <div class="field">
       <label>Starting Thigh</label>
       <input placeholder="15 cm" type="number"  name="startthigh">
     </div>
+    <div class="field">
+      <label>The source of your image</label>
+      <input placeholder="https://semantic-ui.com/images/avatar2/large/elyse.png" type="text"  name="photo">
+    </div>
+    
   </div>
   <button class="ui blue submit button">Submit</button>
 </form>

@@ -1,8 +1,21 @@
+<script>
 
-<form class="ui segment form" action="/member/{{membersData.id}}/addgoal" method="POST">
+function validateForm() {
+    var a = document.forms["goalform"]["goal"].value;
+    if (a  <= 0) {
+        alert("goal must be greater than zero");
+        return false;
+    }
+
+}
+
+</script>
+
+
+<form name = "goalform" class="ui segment form" onsubmit="return validateForm()" action="/member/{{membersData.id}}/addgoal" method="POST">
   
   
-  <div class="two fields">
+  <div class="three fields">
     <div class="field">
          Select your Goal Category
          <select name="goalcategory">
@@ -14,10 +27,17 @@
            <option>upperarm</option>
         </select>
    </div>
+    
     <div class="field">
       <label>Goal</label>
-      <input placeholder="0.00" type="number" name="goal">
+      <input placeholder="0.00" type="number" name="goal"/>
     </div>
+    
+    <div class="field">
+      <label>Target date to achieve goal</label>
+    <input type="date" name="Gdate"/>
+    </div>
+
   </div>
   
   <button class="ui blue submit button" >Add Goal</button>
