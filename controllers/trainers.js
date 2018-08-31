@@ -74,22 +74,8 @@ const trainer = {
   
   
   
- // index3(request, response) {
- //   logger.info('index 3');
- //   const loggedInUser = accounts.getCurrentUser(request);
-//
-//    const viewData = {
- //     title: 'Members Dashboard',
-//      membersData: members.getMemberById(loggedInUser.id),
- //     assessments: loggedInUser.assessments,
- //   };
-//    logger.info('about to render tranerclients',loggedInUser.id);
- //   response.render('trainerclients', viewData);
-//  },
+
   
-  
-  
-//  index4(request, response) {
   
   // this is method is only called by a trainer 
   // member id is got from request parameter, the trainer object gleamed from logged in trainer
@@ -226,7 +212,7 @@ const trainer = {
   
   
   
-  
+  // this just removes the client from trainer list, so updates trainer [] and members trainerid
   
 deleteClient(request, response) {
     const trainerId = request.params.trainerid;
@@ -237,6 +223,21 @@ deleteClient(request, response) {
     response.redirect('/trainer_clients/' + trainerId);
 },
 
+  // to remove member from the database
+  
+  fireClient(request, response) {
+    const trainerId = request.params.trainerid;
+    const memberId = request.params.memberid;
+    trainers.fireClient(trainerId, memberId);
+    logger.debug(`Removing member from DB ${memberId}`);
+    members.fireClient(memberId);
+    response.redirect('/trainer_clients/' + trainerId);
+},
+  
+  
+  
+  
+  
   
   
   

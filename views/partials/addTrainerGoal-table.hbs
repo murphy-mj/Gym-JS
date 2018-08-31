@@ -2,8 +2,8 @@
 
 function validateForm() {
     var a = document.forms["trainergoalform"]["goal"].value;
-    if (a  <= 0) {
-        alert("goal must be greater than zero");
+    if (a  <= 0 ) {
+        alert("goal must be greater than zero and a number");
         return false;
     }
 
@@ -31,7 +31,7 @@ function validateForm() {
     
     <div class="field">
       <label>Goal</label>
-      <input placeholder="0.00" type="number" name="goal">
+      <input placeholder="0.00" type="text" name="goal">
     </div>
     
      <div class="field">

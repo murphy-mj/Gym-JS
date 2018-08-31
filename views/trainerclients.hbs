@@ -4,6 +4,12 @@
   <h2 class="ui header">
     Trainer Name : {{trainersData.firstName}}    {{trainersData.lastName}}
   </h2>
-  {{> listtrainerclients}}
+  {{#if trainersData.firstName}}
+      {{> listtrainerclients}}
+      {{else}}
+      {{> listmanagerclients}}
+      
+  {{/if}}
+  
   
 </section>

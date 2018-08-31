@@ -48,8 +48,9 @@ const membersStore = {
   addAssessment(memberId,newAssessment) {
     const membr = this.getMemberById(memberId);
     const assess = membr.assessments;
+    let memberWeight = parseFloat(membr.startWeight);
     // looks at prior Assessment for weight only
-    let tempTrend = prepdata2.getTrend(assess,newAssessment);
+    let tempTrend = prepdata2.getTrend(assess,newAssessment,memberWeight);
     newAssessment.trend = tempTrend;
     // send Assessment to subrutine to determine if any outstanding goals hva beeb achieved
     let achievedGoal = prepdata2.getGoalAchieved(membr,newAssessment);
@@ -241,7 +242,35 @@ removeAssessmentold(id, assessmentId) {
   },
   
   
+  // remove member from data base
   
+  fireClient(id) {
+    const member1 = this.getMemberById(id);
+    const membersDataTemp = this.store.collection;
+    let index =-1;
+    // just in case the assessments object does not exist
+    if(membersDataTemp === null || membersDataTemp === undefined) {
+        //do nothing
+    } else if(membersDataTemp.length === 0){
+          //do nothing
+         } else {
+              for (let i = 0; i < membersDataTemp.length; i++) {
+                  if(membersDataTemp[i].id === id) {
+                    index = i;
+                  }
+    
+             }
+         }
+    
+    if (index != -1) {
+    membersDataTemp.splice(index, 1);
+    //this.store.collection = membersDataTemp;
+    this.store.remove(this.colection, member1) 
+    this.store.save();
+    }
+    
+    this.store.save();
+  }
   
   
   

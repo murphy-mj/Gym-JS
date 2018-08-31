@@ -23,7 +23,7 @@ const analytics = {
             if(height <= 0){
                bmiAss = 0.000
             }else {
-              let weight2 = parseInt(assessments[assessments.length -1].weight);
+              let weight2 = parseFloat(assessments[assessments.length -1].weight);
               let bmih = parseFloat(height * height);
               bmiAss = parseFloat(weight2 / bmih);
               logger.debug('bmi weight = ',weight2);
@@ -65,9 +65,9 @@ const analytics = {
     let idealBodyWeight = 0;
     let weight = 0;
     if(member.assessments.length == 0) {
-    weight = parseInt(member.startweight);
+    weight = parseFloat(member.startWeight);
     } else {
-    weight =  parseInt(member.assessments[member.assessments.length -1].weight);
+    weight =  parseFloat(member.assessments[member.assessments.length -1].weight);
     }
     let height = convt.convertMeterstoInches(parseFloat(member.height));
     let fivefeet = 60.00;
@@ -96,7 +96,7 @@ const analytics = {
   
   getInitialBMI(member) {
     let bmiAss = 0.000;
-    let weight2 = parseInt(member.startWeight);
+    let weight2 = parseFloat(member.startWeight);
     let bmih = Math.round((parseFloat(member.height) * parseFloat(member.height)),10);
     bmiAss = parseFloat(weight2 / bmih);
     logger.debug('initial bmi weight2 = ',weight2);

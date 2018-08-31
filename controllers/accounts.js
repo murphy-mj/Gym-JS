@@ -62,6 +62,7 @@ register(request, response) {
     }
     membersStore.addMember(member);
     logger.info(`registering ${member.email}`);
+    logger.info('member details ',member);
     response.redirect('/login');
 },
 
@@ -73,15 +74,26 @@ authenticate(request, response) {
     // because we dont know whether the peron logging is a trainer or member, one of these will be valid 
     const member = membersStore.getMemberByEmail(request.body.email);
     const trainer = trainersStore.getTrainerByEmail(request.body.email);
+    let inputPassword = request.body.password;
+  
   
     if (member) {
-      let receivedemail = member.email;
+     
+      if(member.password === inputPassword){ 
+       let receivedemail = member.email;
       // creating a cookie called member and storing members email from login screen, and setting the trainer cookie to ''
       response.cookie('member', member.email);
       response.cookie('trainer','');
       logger.info(`logging member in ${member.email}`);
       response.redirect('/dashboard');
+      } else {
+        response.redirect('/login');
+      }
+      
+      
     } else if (trainer) {
+         if(trainer.password === inputPassword){ 
+      
           let receivedemail = trainer.email;
           // creating a cookie called trainer and storing trainers email from login screen, and setting the member cookie to ''
           response.cookie('trainer', trainer.email);
@@ -91,6 +103,8 @@ authenticate(request, response) {
           }else {
                 response.redirect('/login');
                 }
+     }
+  
 },
 
 // when user logs in, the authenticate() creates a cookie object, in which is stored the email address. cookie called either trainer or member

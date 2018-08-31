@@ -435,6 +435,169 @@
       ],
       "level": "info",
       "message": "what object member object"
+    },
+    {
+      "firstName": "Josh",
+      "lastName": "Muldoon",
+      "gender": "M",
+      "email": "josh@eir",
+      "password": "secret",
+      "height": "1.96",
+      "startweight": "78",
+      "age": "26",
+      "address": "waterville, Co kerry",
+      "startarm": "25",
+      "startthigh": "24",
+      "photo": "https://semantic-ui.com/images/avatar/large/daniel.jpg",
+      "id": "9e0dbdb5-2b15-4965-9864-5f6a959a0f99",
+      "jDate": "2018-08-30T22:18:12.118Z",
+      "trainerid": "79",
+      "assessments": [
+        {
+          "weight": "89",
+          "chest": "45",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "45",
+          "hips": "45",
+          "id": "1067c0c7-13a2-4dc9-b1fe-710eba998aba",
+          "date": "2018-8-30 22:20:10",
+          "comment": "doing well",
+          "trend": false,
+          "level": "debug",
+          "message": "View select Assessment and add comment"
+        }
+      ],
+      "goals": [
+        {
+          "goalcategory": "weight",
+          "goal": "100",
+          "Gdate": "2018-11-30 00:00:00",
+          "id": "20de852d-01b4-409c-a7d7-ab83380da2c7",
+          "date": "2018-8-30 22:22:28",
+          "status": "open",
+          "origin": "boy"
+        }
+      ],
+      "startWeight": "80"
+    },
+    {
+      "firstName": "Adam",
+      "lastName": "Smith",
+      "gender": "M",
+      "email": "as@eir",
+      "password": "secret",
+      "height": "1.45",
+      "startweight": "78",
+      "age": "47",
+      "address": "96 philly",
+      "photo": "https://semantic-ui.com/images/avatar/large/daniel.jpg",
+      "id": "9296290b-225e-4ea4-8bf5-3eeedd7c5f20",
+      "jDate": "2018-08-31T20:59:00.880Z",
+      "trainerid": "99",
+      "assessments": [],
+      "goals": [],
+      "level": "info",
+      "message": "member details "
+    },
+    {
+      "firstName": "Joe",
+      "lastName": "Beethoven",
+      "gender": "M",
+      "email": "joeb@eir",
+      "password": "secret",
+      "height": "1.33",
+      "startWeight": "60",
+      "age": "22",
+      "address": "west",
+      "photo": "https://semantic-ui.com/images/avatar/large/daniel.jpg",
+      "id": "ed5c8828-852e-4493-8a06-1afbd01050ae",
+      "jDate": "2018-08-31T21:15:16.691Z",
+      "trainerid": "99",
+      "assessments": [
+        {
+          "weight": "69",
+          "chest": "45",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "32",
+          "hips": "35",
+          "id": "bf1b6977-6370-4746-a2d9-cf6b4494a047",
+          "date": "2018-8-31 22:33:28",
+          "comment": "",
+          "trend": false
+        },
+        {
+          "weight": "70.3",
+          "chest": "45",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "32",
+          "hips": "35",
+          "id": "36b9cb7c-b3f1-4ed2-a7cf-047293bb2457",
+          "date": "2018-8-31 22:33:57",
+          "comment": "",
+          "trend": false
+        },
+        {
+          "weight": "78",
+          "chest": "45",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "32",
+          "hips": "50",
+          "id": "6bcc6bc9-41b4-41bd-9cb5-d20c611987f5",
+          "date": "2018-8-31 22:34:44",
+          "comment": "",
+          "trend": false
+        },
+        {
+          "weight": "78",
+          "chest": "50",
+          "thigh": "34",
+          "upperarm": "20",
+          "waist": "32",
+          "hips": "52",
+          "id": "27b0c2b3-6429-4e67-8bc7-41f7398f7576",
+          "date": "2018-8-31 22:42:26",
+          "comment": "",
+          "trend": true
+        }
+      ],
+      "goals": [
+        {
+          "goalcategory": "weight",
+          "goal": "70.3",
+          "Gdate": "2018-12-26 00:00:00",
+          "id": "bce625dd-182b-4546-9331-de31bfe70f44",
+          "date": "2018-8-31 22:33:09",
+          "status": "achieved within time frame",
+          "origin": "member",
+          "achieveddate": "2018-8-31 22:33:57"
+        },
+        {
+          "goalcategory": "hips",
+          "goal": "50",
+          "Gdate": "2018-8-29 00:00:00",
+          "id": "3518a8bb-352d-4d9e-b885-1c1ee802e6c6",
+          "date": "2018-8-31 22:34:25",
+          "status": "achieved outside time frame",
+          "origin": "member",
+          "achieveddate": "2018-8-31 22:34:44"
+        },
+        {
+          "goalcategory": "hips",
+          "goal": "52",
+          "Gdate": "2018-9-28 00:00:00",
+          "id": "ccec47f4-b9bd-4af4-8bbf-ef898c8051d7",
+          "date": "2018-8-31 22:41:29",
+          "status": "achieved within time frame",
+          "origin": "boy",
+          "achieveddate": "2018-8-31 22:42:26"
+        }
+      ],
+      "level": "info",
+      "message": "member details "
     }
   ]
 }

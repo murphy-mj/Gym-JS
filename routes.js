@@ -73,7 +73,7 @@ router.post('/trainerDataUpdate', trainers.trainerDataUpdate);
 router.get('/trainer_update', trainers.review);
 
 router.get('/trainer/:trainerid/deleteClient/:memberid', trainers.deleteClient);
-
+router.get('/trainer/:trainerid/fireClient/:memberid', trainers.fireClient);
 
 
 // not sure if this needed

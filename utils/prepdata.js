@@ -72,8 +72,8 @@ const prepdata = {
   
   isIdealBodyWeight(member){
     let idealBodyWeight = 0;
-    let weight = member.startWeight;
-    let height = convt.convertMeterstoInches(member.height);
+    let weight = parseFloat(member.startWeight);
+    let height = convt.convertMeterstoInches(parseFloat(member.height));
     let fivefeet = 60.00;
     
     if(height <= fivefeet){
@@ -94,70 +94,6 @@ const prepdata = {
     return ((idealBodyWeight <= (weight +2.0)) && (idealBodyWeight >= (weight -2.0)));
   }
   
-  
-  
-  //assessments is the list of existing Assessments,
-  // newAssessment is the new one we are about to add
-  // the existing assessments[] is sorted by date (function based on w3 schools example)
-  // one it is sorted the new Assessments weight is compared to the last Assessment in the assessments array
-  
-//  getTrend(assessments,newAssessment){
-//   let trend = true;
-//   logger.info('get trend ',trend);
-//   if(assessments.length >1) {
-//      assessments.sort(function(a,b) {
-//             let dateA = new Date(a.date), dateB = new Date(b.date);
- //            return dateA - dateB;
-//      });
-//   }
-//   if(assessments.length <= 1){
- //    // do nothing
- //  } else if(assessments[assessments.length-1].weight >= newAssessment.weight) {
-//      trend = true;
- //  } else if(assessments[assessments.length-1].weight < newAssessment.weight)  {
- //    trend = false;
-//   }
-    
-//  return trend;
-//  },
-  
-  
-  
-  //when each assessment is created and being added to the assessments array.
-  // the members goals are checked to see if there are are open or missed goals
-  // any open/missed goals and categories are compared against each assessment field name and value
-  // and if current value equals goal then it is achieved, and achieved date recorded.
-  // only modelled for exact match, not exceeding target
-  
-//  getGoalAchieved(membrId,newAssessment){
-// need to iterate through the open/missed goals, find goalcategory and goal
-// then compare with latest assessment
- //   let attained = false;
-//    const membrGoals = membersStore.getMemberById(membrId).goals;
-//    let goalCategory = ""
-//    let goalValue = 0.00;
-//        for (let i = 0; i < membrGoals.length; i++) {
-//            if(membrGoals[i].status !== "open" ) {
-  //             goalCategory = membrGoals[i].goalcategory;
- //              goalValue = membrGoals[i].goal;
-  //             for(var propt in newAssessment){
-  //                 if ( propt === goalCategory ) {
-  //                     if ( newAssessment[propt] === goalValue) {
-  //                        membrGoals[i].status = "achieved";
-  //                        membrGoals[i].achieveddate = newAssessment.date;
- //                         attained = true;
-  //                     } else {
-  //                        membrGoals[i].status = "missed";
-  //                     }
-   //                }
-    //            }
-              
-    //          }
-  // / 
-   //      }
-//    membersStore.updateGoals()
-//    return attained
-//  }
   
 
   

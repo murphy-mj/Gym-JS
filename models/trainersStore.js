@@ -105,7 +105,34 @@ const trainersStore = {
     trainerDetails.clients.push(memberId);
     this.store.save();
     
-  }
+  },
+  
+fireClient(trainerId, memberId) {
+  const trainer1 = this.getTrainerById(trainerId);
+    const assessmentsTemp = trainer1.clients;
+    let index =-1;
+    // just in case the clients object does not exist
+    if(trainer1.clients === null || trainer1.clients === undefined) {
+        //do nothing
+    } else if(trainer1.clients.length === 0){
+          //do nothing
+         } else {
+              for (let i = 0; i < trainer1.clients.length; i++) {
+                  if(trainer1.clients[i].id === memberId) {
+                    index = i;
+                  }
+    
+             }
+         }
+    
+    if (index != -1) {
+    assessmentsTemp.splice(index, 1);
+    trainer1.clients = assessmentsTemp;
+    }
+    
+    this.store.save();
+
+}
   
   
   
