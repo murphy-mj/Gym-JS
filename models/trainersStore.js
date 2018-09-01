@@ -106,6 +106,8 @@ const trainersStore = {
     this.store.save();
     
   },
+
+  // removing member who is to be removed from data base, from the list of tranier clients
   
 fireClient(trainerId, memberId) {
   const trainer1 = this.getTrainerById(trainerId);
@@ -135,8 +137,6 @@ fireClient(trainerId, memberId) {
 }
   
   
-  
-
   
 };
 

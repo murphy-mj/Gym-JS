@@ -3,48 +3,28 @@
     {
       "id": "78",
       "firstName": "Fitness J",
-      "lastName": "Fanatic",
+      "lastName": "O'Fanatic",
       "email": "ff@eir",
       "password": "secret",
       "gender": "M",
-      "speciality": "Spinning out of control",
+      "speciality": "Spinning and Swimming",
       "age": "55",
       "photo": "https://semantic-ui.com/images/avatar/large/steve.jpg",
-      "bio": "work hard and eat less this is my motto. Up at 6 and bed at 12. After twenty years of educations, is this it. \r\nDoes my wallet look big in this!         ",
-      "clients": [
-        {
-          "id": "ed70b509-fea0-4296-9686-3d3030bdbcdd"
-        },
-        {
-          "id": "c9cb016c-b3dc-46e8-944a-d236fbcb62a5"
-        }
-      ]
+      "bio": "work hard and eat less this is my motto.  ",
+      "clients": []
     },
     {
       "id": "79",
-      "firstName": "lazy",
-      "lastName": "boy",
+      "firstName": "Wellington",
+      "lastName": "Boyy",
       "email": "lb@eir",
       "password": "secret",
       "gender": "M",
-      "speciality": "Sofa  dreams",
+      "speciality": "Running",
       "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
       "age": "47",
-      "bio": "three wise people once said that veg was the source of life . Was it true ?   ",
-      "clients": [
-        {
-          "id": "01"
-        },
-        {
-          "id": "03"
-        },
-        {
-          "id": "c6fce0d9-f264-495c-a87a-dd80678f2f94"
-        },
-        {
-          "id": "9e0dbdb5-2b15-4965-9864-5f6a959a0f99"
-        }
-      ]
+      "bio": "Wellington,  born in Waterford.  Established himself as the primary athletics coach in Waterford in the 1970's , bring four teams to the Euro's.",
+      "clients": []
     },
     {
       "id": "99",
@@ -59,16 +39,13 @@
       "bio": " The is the default, for members who have not selected a trainer",
       "clients": [
         {
-          "id": "02"
+          "id": "0e2330ac-f8fa-468e-a0f6-b929453358e3"
         },
         {
-          "id": "05"
+          "id": "043bf218-6d1d-4958-a892-7a654fc8387b"
         },
         {
-          "id": "9296290b-225e-4ea4-8bf5-3eeedd7c5f20"
-        },
-        {
-          "id": "ed5c8828-852e-4493-8a06-1afbd01050ae"
+          "id": "5c1d8ce0-0806-412b-83e5-2ed959ef65bf"
         }
       ]
     }

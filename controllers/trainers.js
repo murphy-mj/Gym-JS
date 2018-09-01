@@ -72,8 +72,6 @@ const trainer = {
   },
   
   
-  
-  
 
   
   
@@ -197,6 +195,7 @@ const trainer = {
   
   
   // review existing data prior to change
+  
   review(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
     logger.debug('current logged data review ',loggedInUser.id);
@@ -230,16 +229,49 @@ deleteClient(request, response) {
     const memberId = request.params.memberid;
     trainers.fireClient(trainerId, memberId);
     logger.debug(`Removing member from DB ${memberId}`);
-    members.fireClient(memberId);
+   // members.fireClient(memberId);
+    
+     const member1 = members.getMemberById(memberId);
+    logger.debug("member to delete ",member1); 
+  
+    const membersDataTemp = members.store.testMartin(members.collection);
+    
+    logger.debug("members data temp ",membersDataTemp); 
+    let index =-1;
+    logger.debug("members data .length ",membersDataTemp.length); 
+    // just in case the  object does not exist
+    if(membersDataTemp === null || membersDataTemp === undefined) {
+      logger.debug("members data temp  is null or undefined");
+        //do nothing
+    } else if(membersDataTemp.length === 0){
+          logger.debug("members data temp  is zero length");
+         } else {
+              for (let i = 0; i < membersDataTemp.length; i++) {
+                    logger.debug("withinDataTemp id",membersDataTemp[i].id); 
+                  if(membersDataTemp[i].id === memberId) {
+                    logger.debug("removing member comparison id ",memberId); 
+                    logger.debug("removing member[] index id ",membersDataTemp[i].id ); 
+                    index = i;
+                  }
+    
+             }
+         }
+    
+    if (index != -1) {
+    membersDataTemp.splice(index, 1);
+    members.store.collection = membersDataTemp;
+//    members.collection.remove(members.collection, member1);
+    members.store.save();
+    }
+    
+    members.store.save();
+     logger.debug("removing member from db this collection",members.store.collection);  
+
+    
     response.redirect('/trainer_clients/' + trainerId);
 },
   
-  
-  
-  
-  
-  
-  
+    
   
 // review existing data prior to change
   addTrainerGoal(request, response) {
@@ -256,7 +288,7 @@ deleteClient(request, response) {
     response.render('trainerGoal', viewData);
   
   },
-  
+   
   
 };
 

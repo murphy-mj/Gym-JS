@@ -16,9 +16,7 @@ router.post('/register', accounts.register);
 router.post('/authenticate', accounts.authenticate);
 router.get('/logoff', accounts.logout);
 
-
-
-
+//dashborad views
 router.get('/dashboard', member.indexM);
 router.get('/dashboardTT/:email', trainers.indexTT);
 router.get('/alltrainers', trainers.indexTT);
@@ -59,7 +57,6 @@ router.get('/trainer/:trainerid/addgoal/:id', trainers.addTrainerGoal);
 router.post('/trainer/:trainerid/postgoal/:id', member.addGoal);
 
 
-// router.get('/trainer_clients_assess', trainers.index3);
 router.get('/member/:id/listassessments', trainers.listMemberAssessments);
 
 
@@ -71,14 +68,10 @@ router.get('/trainer/group_about/:trainerid', trainers.about);
 
 router.post('/trainerDataUpdate', trainers.trainerDataUpdate);
 router.get('/trainer_update', trainers.review);
-
+// delete client is to remove the client from the listof clients that the trainer has
 router.get('/trainer/:trainerid/deleteClient/:memberid', trainers.deleteClient);
+// fire client is to removed from DB
 router.get('/trainer/:trainerid/fireClient/:memberid', trainers.fireClient);
-
-
-// not sure if this needed
-// router.get('/initial_screen', initial_screen.index);
-
 
 
 

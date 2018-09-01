@@ -8,6 +8,7 @@ const logger = require('../utils/logger');
 const prepdata2 = require('../utils/prepdata2');
 
 const membersStore = {
+ 
   store: new JsonStore('./models/members.json', {membersData:[]}),
   collection: 'membersData',
   
@@ -16,9 +17,7 @@ const membersStore = {
     return this.store.findAll(this.collection);
   },
 
-  //getTest(){
- //   return "46";
- // },
+
 
   getMemberById(id) {
     return this.store.findOneBy(this.collection, { id: id });
@@ -26,10 +25,10 @@ const membersStore = {
 
   
   
-  
   getMemberByEmail(email) {
     return this.store.findOneBy(this.collection, { email: email });
   },
+  
   
   addMember(member) {
     this.store.add(this.collection,member);
@@ -210,13 +209,7 @@ removeAssessmentold(id, assessmentId) {
   
   
   
-  
-  
-  // save goal[] within member object
-  
-  updateGoals() {
-   this.store.membersData.goals.save();
-  },
+
   
   
   
@@ -239,39 +232,10 @@ removeAssessmentold(id, assessmentId) {
    }
     
   return currentWeight;
-  },
-  
-  
-  // remove member from data base
-  
-  fireClient(id) {
-    const member1 = this.getMemberById(id);
-    const membersDataTemp = this.store.collection;
-    let index =-1;
-    // just in case the assessments object does not exist
-    if(membersDataTemp === null || membersDataTemp === undefined) {
-        //do nothing
-    } else if(membersDataTemp.length === 0){
-          //do nothing
-         } else {
-              for (let i = 0; i < membersDataTemp.length; i++) {
-                  if(membersDataTemp[i].id === id) {
-                    index = i;
-                  }
-    
-             }
-         }
-    
-    if (index != -1) {
-    membersDataTemp.splice(index, 1);
-    //this.store.collection = membersDataTemp;
-    this.store.remove(this.colection, member1) 
-    this.store.save();
-    }
-    
-    this.store.save();
   }
   
+  
+ 
   
   
   

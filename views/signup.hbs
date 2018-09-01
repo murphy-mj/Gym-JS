@@ -30,10 +30,10 @@ function validateForm() {
     }
     var f = document.forms["memberform"]["height"].value;
     if (f == "" || f <= 0 || f >= 2.15) {
-        alert("your height must be apositive number, and less than 2.1 meters");
+        alert("your height must be apositive number, and less than 2.15 meters");
         return false;
     }
-    var g = document.forms["memberform"]["startweight"].value;
+    var g = document.forms["memberform"]["startWeight"].value;
     if (g == "" || g < 45 || g >= 126) {
         alert("your starting weight must be a positive number, greater than 44 and less than 126 kgs");
         return false;

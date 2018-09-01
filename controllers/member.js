@@ -9,12 +9,7 @@ const uuid = require('uuid');
 
 const member = {
   
-  
-  
-  
-  
-  
-  
+  // for member dashborad view
   
   indexM(request, response) {
     const loggedInUser = accounts.getCurrentUser(request);
@@ -32,7 +27,7 @@ const member = {
       membersData: members.getMemberById(loggedInUser.id),
       assessments: loggedInUser.assessments,
       bmi: currentBMI,
-      bmicategory: analy.getBMICategory(analy.getBMI(members.getMemberById(loggedInUser.id).assessments,loggedInUser.height)),
+      bmicategory: analy.getBMICategory(parseFloat(currentBMI)),
       idealbodyweight: analy.isIdealBodyWeight(members.getMemberById(loggedInUser.id)),
     };
     logger.info('about to render member for logged in member',loggedInUser.id);
@@ -47,7 +42,6 @@ const member = {
     const assessmentId = request.params.assessmentid;
     logger.debug('Deleting Assessment',assessmentId );
     members.removeAssessment(memberId, assessmentId);
-    // neds to be adjusted so can return either to mombers or trainers view
     const loggedInUser = accounts.getCurrentUser(request);
     if(loggedInUser.id === memberId){
     response.redirect('/member/' + memberId);

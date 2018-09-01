@@ -60,12 +60,25 @@ register(request, response) {
         member.photo = femalePhoto;
       }
     }
+  
+    if(membersStore.getMemberByEmail(request.body.email)){
+      // email exists
+      response.redirect('/signup');
+    } else {
     membersStore.addMember(member);
     logger.info(`registering ${member.email}`);
     logger.info('member details ',member);
     response.redirect('/login');
+    }
 },
 
+  
+
+  
+  
+  
+  
+  
 // when the peron logs in, we need to direct to the correct menu/dashboard
 // the person logs in using a form, contaiing a email and password
 
@@ -122,9 +135,6 @@ getCurrentUser(request) {
            return membersStore.getMemberByEmail(userEmailm);
           }
 },
-  
-  
-  
   
   
 updateSettings(request,response) {
