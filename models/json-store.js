@@ -42,6 +42,10 @@ class JsonStore {
   findBy(collection, filter) {
     return this.db.get(collection).filter(filter).value();
   }
+  
+  testMartin(collection){
+     return this.db.get(collection).value();
+  }
 }
 
 module.exports = JsonStore;

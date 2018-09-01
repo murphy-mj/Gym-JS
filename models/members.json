@@ -1,440 +1,94 @@
 {
   "membersData": [
     {
-      "id": "01",
-      "firstName": "Sonatas",
-      "lastName": "Beethoven",
-      "email": "sonatas@eir",
-      "password": "secret",
-      "jDate": "2016-8-31 00:00:00",
-      "bio": "I like doing stuff oustide",
-      "photo": "https://semantic-ui.com/images/avatar2/large/molly.png",
-      "height": "2.54",
-      "startWeight": "78",
-      "startWaist": 45,
-      "startArm": 27,
-      "startThigh": 45,
-      "age": "38",
-      "gender": "M",
-      "address": "22 Bakers Street London",
-      "trainerid": "79",
-      "assessments": [
-        {
-          "weight": "57",
-          "chest": "43",
-          "thigh": "32",
-          "upperarm": "20",
-          "waist": "32",
-          "hips": "35",
-          "id": "4e4ec411-8be7-4de7-9360-84c8794e410f",
-          "date": "2018-08-03T20:56:30.484Z",
-          "comment": "need a bit of work"
-        }
-      ],
-      "goals": [
-        {
-          "date": "2018-08-04T20:56:30.484Z",
-          "goalcategory": "weight",
-          "goal": "56",
-          "status": "achieved"
-        }
-      ]
-    },
-    {
-      "id": "02",
-      "firstName": "Stephen",
-      "lastName": "Beethoven",
-      "email": "stephen@eir",
-      "password": "secret",
-      "jDate": "2015-8-31 00:00:00",
-      "bio": "I don't like doing stuff oustide",
-      "photo": "https://semantic-ui.com/images/avatar2/large/elyse.png",
-      "height": 2.65,
-      "startWeight": 79,
-      "startWaist": 45,
-      "startArm": 35,
-      "startThigh": 46,
-      "age": 30,
-      "gender": "M",
-      "address": "23 Bakers Street London",
-      "trainerid": "99",
-      "assessments": [
-        {
-          "weight": "56",
-          "chest": "44",
-          "thigh": "33",
-          "upperarm": "21",
-          "waist": "31",
-          "hips": "32",
-          "id": "32",
-          "date": "2018-06-31T17:54:43.230Z",
-          "comment": ""
-        },
-        {
-          "weight": "56",
-          "chest": "44",
-          "thigh": "33",
-          "upperarm": "21",
-          "waist": "31",
-          "hips": "32",
-          "id": "33",
-          "date": "2018-05-31T17:54:43.230Z",
-          "comment": ""
-        }
-      ],
-      "goals": [
-        {
-          "date": "2018-06-31T17:54:43.230Z",
-          "goalcategory": "weight",
-          "goal": "56",
-          "status": "achieved"
-        }
-      ]
-    },
-    {
-      "id": "03",
-      "firstName": "Rock",
-      "lastName": "Beethoven",
-      "email": "rock@eir",
-      "password": "secret",
-      "jDate": "2017-8-31 00:00:00",
-      "bio": "I like playing music with my friends ",
-      "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-      "height": 2.89,
-      "startWeight": 90,
-      "startWaist": 45,
-      "startArm": 27,
-      "startThigh": 45,
-      "age": 45,
-      "gender": "F",
-      "address": "25 Bakers Street London",
-      "trainerid": "79",
-      "assessments": [],
-      "goals": []
-    },
-    {
-      "firstName": "Sean",
-      "lastName": "Mullally",
-      "email": "sean@eir",
-      "password": "secret",
-      "jDate": "2017-5-31 00:00:00",
-      "bio": "I like playing jogging with my friends ",
-      "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-      "id": "05",
-      "height": "2.89",
-      "startWeight": "83",
-      "startWaist": 47,
-      "startArm": 27,
-      "startThigh": 45,
-      "age": "47",
-      "gender": "M",
-      "address": "27 Bakers Street London",
-      "trainerid": "99",
-      "assessments": [
-        {
-          "weight": "56",
-          "chest": "44",
-          "thigh": "33",
-          "upperarm": "21",
-          "waist": "31",
-          "hips": "32",
-          "id": "37",
-          "date": "2016-07-31T17:54:43.230Z",
-          "comment": ""
-        },
-        {
-          "weight": "56",
-          "chest": "44",
-          "thigh": "33",
-          "upperarm": "21",
-          "waist": "31",
-          "hips": "32",
-          "id": "38",
-          "date": "2016-08-31T17:54:43.230Z",
-          "comment": ""
-        },
-        {
-          "weight": "56",
-          "chest": "44",
-          "thigh": "33",
-          "upperarm": "21",
-          "waist": "31",
-          "hips": "32",
-          "id": "39",
-          "date": "2016-09-31T17:54:43.230Z",
-          "comment": "doing well"
-        }
-      ],
-      "goals": [
-        {
-          "date": "2016-07-31T17:54:43.230Z",
-          "goalcategory": "weight",
-          "goal": "50",
-          "status": "open"
-        }
-      ]
-    },
-    {
-      "firstName": "Martin",
-      "lastName": "Murphy",
-      "gender": "M",
-      "email": "martin@eir",
-      "password": "secret",
-      "jDate": "2018-3-31 00:00:00",
-      "bio": "I am that is all",
-      "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-      "height": "3",
-      "startweight": "78",
-      "startWaist": 45,
-      "startArm": 27,
-      "startThigh": 45,
-      "address": "dunmore",
-      "id": "c6fce0d9-f264-495c-a87a-dd80678f2f94",
-      "trainerid": "79",
-      "assessments": [
-        {
-          "weight": "55",
-          "chest": "48",
-          "thigh": "34",
-          "upperarm": "20",
-          "waist": "32",
-          "hips": "30",
-          "id": "7c8d9c0e-1599-4280-a5ed-f113a885f9ef",
-          "date": "2018-08-23T21:25:02.844Z",
-          "comment": "",
-          "trend": true,
-          "level": "info",
-          "message": "new Assessment"
-        },
-        {
-          "weight": "56",
-          "chest": "45",
-          "thigh": "34",
-          "upperarm": "20",
-          "waist": "34",
-          "hips": "34",
-          "id": "7b0205e4-8af6-416a-a265-a3264a7925a1",
-          "date": "2018-08-23T21:27:29.565Z",
-          "comment": "",
-          "trend": false,
-          "level": "info",
-          "message": "new Assessment"
-        },
-        {
-          "weight": "56",
-          "chest": "45",
-          "thigh": "34",
-          "upperarm": "20",
-          "waist": "32",
-          "hips": "34",
-          "id": "edd12e86-bf4c-43cc-b9bb-02a84390428e",
-          "date": "2018-08-23T21:32:39.055Z",
-          "comment": "well you are so lucky that you changed trainer",
-          "trend": true,
-          "level": "debug",
-          "message": "Requesting to view Assessment"
-        },
-        {
-          "weight": "56",
-          "chest": "45",
-          "thigh": "34",
-          "upperarm": "20",
-          "waist": "32",
-          "hips": "45",
-          "id": "a97fd8dc-0709-47c5-b176-2430193ac300",
-          "date": "2018-8-26 10:29:08",
-          "comment": "",
-          "trend": true
-        }
-      ],
-      "goals": [
-        {
-          "goalcategory": "weight",
-          "goal": "55",
-          "Gdate": "2018-8-31 00:00:00",
-          "id": "3c6c8cb0-9ec7-490d-955a-2b5cbf160b2e",
-          "date": "2018-8-27 22:44:35",
-          "status": "open",
-          "origin": "member"
-        }
-      ],
-      "startWeight": "56",
-      "age": "52"
-    },
-    {
-      "firstName": "Majella",
-      "lastName": "Mullally",
-      "gender": "F",
-      "email": "maj@eir",
-      "password": "secret",
-      "jDate": "2016-7-31 00:00:00",
-      "bio": "seems day is too short for me",
-      "photo": "https://semantic-ui.com/images/avatar2/large/molly.png",
-      "height": "2.22",
-      "startWeight": "57",
-      "age": "37",
-      "address": "dunmore",
-      "startArm": "25",
-      "startThigh": "27",
-      "id": "09",
-      "trainerid": "99",
-      "assessments": [
-        {
-          "weight": "56",
-          "chest": "44",
-          "thigh": "33",
-          "upperarm": "21",
-          "waist": "31",
-          "hips": "32",
-          "id": "62",
-          "date": "2018-07-31T17:54:43.230Z",
-          "comment": "doing well"
-        }
-      ],
-      "goals": [
-        {
-          "goalcategory": "chest",
-          "goal": "35",
-          "id": "abb88885-e411-40ea-9cc4-bb473fcbb5be",
-          "date": "2018-08-19T22:19:26.981Z",
-          "status": "achieved",
-          "origin": "member",
-          "achieveddate": "2018-08-21T18:21:31.560Z"
-        },
-        {
-          "goalcategory": "chest",
-          "goal": "34",
-          "id": "bc1a2b6f-3abd-44b9-a28a-77c64ed78711",
-          "date": "2018-08-19T22:24:56.911Z",
-          "status": "missed",
-          "origin": "Fanatic"
-        },
-        {
-          "goalcategory": "weight",
-          "goal": "45",
-          "id": "b792848c-6549-4d2b-9536-99699fd03d64",
-          "date": "2018-08-19T22:27:34.575Z",
-          "status": "achieved",
-          "origin": "Fanatic",
-          "achieveddate": "2018-08-21T18:21:31.560Z"
-        },
-        {
-          "goalcategory": "upperarm",
-          "goal": "25",
-          "Gdate": "2018-8-31 00:00:00",
-          "id": "bc5aacb2-9fa3-405a-835c-8eea22c0ce48",
-          "date": "2018-8-26 11:18:58",
-          "status": "open",
-          "origin": "member"
-        }
-      ]
-    },
-    {
-      "firstName": "Martin",
-      "lastName": "Murphy",
-      "gender": "M",
-      "email": "mm@eir",
-      "password": "secret",
-      "jDate": "2017-1-31 00:00:00",
-      "bio": "just a liitle more time",
-      "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-      "height": "3",
-      "startWeight": "80",
-      "age": "37",
-      "address": "226 Caulfield",
-      "startArm": "20",
-      "startThigh": "26",
-      "id": "ed70b509-fea0-4296-9686-3d3030bdbcdd",
-      "trainerid": "78",
-      "assessments": [],
-      "goals": [
-        {
-          "date": "2018-08-12T22:18:46.441Z",
-          "goalcategory": "weight",
-          "goal": "50",
-          "status": "open"
-        },
-        {
-          "goalcategory": "upperarm",
-          "goal": "56",
-          "id": "c3c47f0f-d738-4c70-a591-66f042233e23",
-          "date": "2018-08-19T22:06:57.295Z",
-          "status": "open"
-        },
-        {
-          "goalcategory": "hips",
-          "goal": "35",
-          "Gdate": null,
-          "id": "341d2226-9cde-407c-b122-68d41997eaa2",
-          "date": "2018-08-23T21:34:42.799Z",
-          "status": "open",
-          "origin": "Fanatic"
-        },
-        {
-          "goalcategory": "weight",
-          "goal": "57",
-          "Gdate": "2018-8-7 00:00:00",
-          "id": "99550058-b574-4cb3-96f6-0ce47a046ccb",
-          "date": "2018-8-27 22:37:17",
-          "status": "open",
-          "origin": "Fanatic"
-        }
-      ]
-    },
-    {
       "firstName": "Tommy",
       "lastName": "Murphy",
       "gender": "M",
       "email": "tm@eir",
       "password": "secret",
-      "jDate": "2018-1-31 00:00:00",
-      "bio": "I like playing being the best",
-      "photo": "https://semantic-ui.com/images/avatar2/large/matthew.png",
-      "height": "2.2",
-      "startWeight": "56",
-      "age": "12",
-      "address": "221 Bakers Street, London",
-      "startArm": "10",
-      "startThigh": "25",
-      "id": "c9cb016c-b3dc-46e8-944a-d236fbcb62a5",
-      "trainerid": "78",
+      "height": "1.10",
+      "startWeight": "38",
+      "age": "15",
+      "address": "3 Wexford Heights, Wexford, Ireland",
+      "photo": "https://semantic-ui.com/images/avatar/large/daniel.jpg",
+      "id": "0e2330ac-f8fa-468e-a0f6-b929453358e3",
+      "jDate": "2018-09-01T08:39:34.411Z",
+      "trainerid": "99",
       "assessments": [
         {
-          "weight": "58",
-          "chest": "32",
-          "thigh": "34",
-          "upperarm": "20",
-          "waist": "32",
-          "hips": "34",
-          "id": "1c86e249-6def-40e7-a435-856355015962",
-          "date": "2018-8-29 22:26:38",
-          "comment": "",
-          "trend": true
+          "weight": "50",
+          "chest": "23",
+          "thigh": "15",
+          "upperarm": "12",
+          "waist": "22",
+          "hips": "23",
+          "id": "b26887a3-ee38-42d7-81cc-9886a996b690",
+          "date": "2018-9-1 08:41:27",
+          "comment": "not a bad efford",
+          "trend": true,
+          "level": "debug",
+          "message": "View select Assessment and add comment"
         }
       ],
       "goals": [
         {
           "goalcategory": "weight",
-          "goal": "60",
+          "goal": "50",
           "Gdate": "2018-9-28 00:00:00",
-          "id": "c87e4ab6-fb0e-4454-9048-65856275457b",
-          "date": "2018-8-29 22:25:55",
-          "status": "not achieved yet, but within timeframe",
-          "origin": "member"
+          "id": "6ef3bf4d-ecbb-47d9-8f2b-3bf58006d22e",
+          "date": "2018-9-1 08:40:11",
+          "status": "achieved within time frame",
+          "origin": "member",
+          "achieveddate": "2018-9-1 08:41:27"
         },
         {
           "goalcategory": "chest",
-          "goal": "32",
-          "Gdate": "2018-9-26 00:00:00",
-          "id": "308112aa-1f9a-42b3-bca5-73249460bfb0",
-          "date": "2018-8-29 22:26:13",
-          "status": "achieved within time frame",
-          "origin": "member",
-          "achieveddate": "2018-8-29 22:26:38"
+          "goal": "26",
+          "Gdate": "2018-12-31 00:00:00",
+          "id": "f757e5a3-39bc-48bb-9c7f-c2a4fd0deefb",
+          "date": "2018-9-1 08:46:15",
+          "status": "open",
+          "origin": "Fanatic"
         }
       ],
       "level": "info",
-      "message": "what object member object"
+      "message": "member details "
+    },
+    {
+      "firstName": "toby",
+      "lastName": "Mullally",
+      "gender": "M",
+      "email": "tb@eir",
+      "password": "secret",
+      "height": "2.14",
+      "startWeight": "30",
+      "age": "14",
+      "address": "east",
+      "photo": "https://semantic-ui.com/images/avatar/large/daniel.jpg",
+      "id": "043bf218-6d1d-4958-a892-7a654fc8387b",
+      "jDate": "2018-09-01T20:30:53.208Z",
+      "trainerid": "99",
+      "assessments": [],
+      "goals": [],
+      "level": "info",
+      "message": "member details "
+    },
+    {
+      "firstName": "Sean",
+      "lastName": "Mullally",
+      "gender": "M",
+      "email": "se@eir",
+      "password": "secret",
+      "height": "1.97",
+      "startWeight": "89",
+      "age": "78",
+      "address": "east",
+      "photo": "https://semantic-ui.com/images/avatar/large/daniel.jpg",
+      "id": "5c1d8ce0-0806-412b-83e5-2ed959ef65bf",
+      "jDate": "2018-09-01T20:33:32.840Z",
+      "trainerid": "99",
+      "assessments": [],
+      "goals": []
     }
   ]
 }

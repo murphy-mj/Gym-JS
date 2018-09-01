@@ -1,0 +1,46 @@
+
+<table class="ui table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Add Goal</th>
+      <th>Remove Member from Gym DB</th>
+      <th>List Assessments</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each clientdetails}}
+      <tr>
+        <td>
+          {{id}}
+        </td>
+        <td>
+          {{firstName}}
+        </td>
+        <td>
+          {{lastName}}
+        </td>
+        <td>
+          {{age}}
+        </td>
+        <td>
+          {{gender}}
+        </td>
+        <td>
+          <a href="/trainer/{{../trainersData.id}}/addgoal/{{id}}" class="ui tiny blue button">Add Goal for Client</a>
+        </td>
+         <td>
+          <a href="/trainer/{{../trainersData.id}}/fireClient/{{id}}" class="ui tiny red button">Remove Member</a>
+        </td>
+         <td>
+        <a href = "/member/{{id}}/listassessments" class ="ui icon button"><i class="icon compress"></i></a>
+        </td>
+        
+      </tr>
+   {{/each}}
+  </tbody>
+</table>

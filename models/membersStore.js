@@ -8,6 +8,7 @@ const logger = require('../utils/logger');
 const prepdata2 = require('../utils/prepdata2');
 
 const membersStore = {
+ 
   store: new JsonStore('./models/members.json', {membersData:[]}),
   collection: 'membersData',
   
@@ -16,9 +17,7 @@ const membersStore = {
     return this.store.findAll(this.collection);
   },
 
-  //getTest(){
- //   return "46";
- // },
+
 
   getMemberById(id) {
     return this.store.findOneBy(this.collection, { id: id });
@@ -26,10 +25,10 @@ const membersStore = {
 
   
   
-  
   getMemberByEmail(email) {
     return this.store.findOneBy(this.collection, { email: email });
   },
+  
   
   addMember(member) {
     this.store.add(this.collection,member);
@@ -48,8 +47,9 @@ const membersStore = {
   addAssessment(memberId,newAssessment) {
     const membr = this.getMemberById(memberId);
     const assess = membr.assessments;
+    let memberWeight = parseFloat(membr.startWeight);
     // looks at prior Assessment for weight only
-    let tempTrend = prepdata2.getTrend(assess,newAssessment);
+    let tempTrend = prepdata2.getTrend(assess,newAssessment,memberWeight);
     newAssessment.trend = tempTrend;
     // send Assessment to subrutine to determine if any outstanding goals hva beeb achieved
     let achievedGoal = prepdata2.getGoalAchieved(membr,newAssessment);
@@ -209,13 +209,7 @@ removeAssessmentold(id, assessmentId) {
   
   
   
-  
-  
-  // save goal[] within member object
-  
-  updateGoals() {
-   this.store.membersData.goals.save();
-  },
+
   
   
   
@@ -238,11 +232,10 @@ removeAssessmentold(id, assessmentId) {
    }
     
   return currentWeight;
-  },
+  }
   
   
-  
-  
+ 
   
   
   

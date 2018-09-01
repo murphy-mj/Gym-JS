@@ -7,87 +7,9 @@ const membersStore =  require('../models/membersStore');
 const trainers = require('../models/trainersStore');
 const logger = require('./logger');
 
-const prepdata = {
+const prepdata2 = {
   
- // getTrainerClients(trainerIn,membersIn){
-    
-//  const clientDetails = [];
-    
-//  if ((trainerIn === null || trainerIn === 'undefined')) {
-     // do nothingclients
- //   } else if(trainerIn.clients.length === 0) {
-      // do nothing
- //   } else {
-//    logger.info('trainerIn ', trainerIn.clients);
-//      for (let i = 0; i < trainerIn.clients.length; i++) {
-                  
-//                   let clientid = trainerIn.clients[i].id;
-  //                 const clientDetail = new Object();
- //                  logger.info('client id ', clientid);
-//                   logger.info('get test ', trainers.getTestT());
- //                  logger.info('get test ', membersStore.getTest());
-//        
-  //                 let membrz = membersStore.getMemberById(clientid);
-        
- //                  clientDetail.id = membrz.id;
-   //                clientDetail.firstName = membrz.firstName;
- //                  clientDetail.lastName = membrz.lastName;
-    //               clientDetail.age = membrz.age;
-    //               clientDetail.gender = membrz.gender;
-   //                clientDetails.push(clientDetail);
-//        }
-   // }
-//    
-////  return clientDetails
-//  },
-  
-   
-   
-////  setTrainerClients(trainerId,all_members){
-//  let clients = [];
-//  const trainr = trainers.getTrainerById(trainerId);
 
- //       for (let i = 0; i < all_members.length; i++) {
-      
-  //                 let clientid = all_members[i].trainerid;
-  //                 let membrid = all_members[i].id;
-  //                 if(clientid == trainr.id){
-  //                     const clientDetail = new Object();
-  //                     clientDetail.id = membrid;
- //                      clients.push(clientDetail);
- //                   }
- //         }
- //   return clients;
-  
-//  },
-  
-  
-//  isIdealBodyWeight(member){
-//    let idealBodyWeight = 0;
-//    let weight = member.startWeight;
-//    let height = convt.convertMeterstoInches(member.height);
-//    let fivefeet = 60.00;
- //   
-//    if(height <= fivefeet){
-//       if(member.gender == "M") {
-  //       idealBodyWeight = 50;
-  //     } else {
-  //       idealBodyWeight = 50;
-  //     }
-  //  } else {
-  //    if(member.gender == "M") {
-//         idealBodyWeight = 50 + ((height - fivefeet) * 2.3);
-//      } else{
- //         idealBodyWeight = 45.5 + ((height - fivefeet) * 2.3);
- //     }
-//      
-//      }
-//    
-//    return ((idealBodyWeight <= (weight +2.0)) && (idealBodyWeight >= (weight -2.0)));
-//  },
-  
-  
-  
   
   
   
@@ -97,7 +19,7 @@ const prepdata = {
   // it compares the new Assessment' weight to the last Assessment stored in the assessments []
   // assessments [] is sorted before this is done
   
-  getTrend(assessments,newAssessment){
+  getTrend(assessments,newAssessment,memberWeight){
    let trend = true;
    // in oder to pick the latest assessment stored, the assessment array needs to be sorted
   //  assessments.length-1 will then return the last assessment
@@ -109,12 +31,18 @@ const prepdata = {
    }
     
    if(assessments.length < 1){
-     // do nothing, as no assessments stored
-   } else if(assessments[assessments.length-1].weight >= newAssessment.weight) {
+     // no previous assessments stored, so this is first assessments, so need to compare to startWeight at registration
+     if(parseFloat(memberWeight) >= parseFloat(newAssessment.weight)) {
+      trend = true;
+     } else {
+       trend = false;
+     }
+    
+   } else if(parseFloat(assessments[assessments.length-1].weight) >= parseFloat(newAssessment.weight)) {
       trend = true;
       // if the last assesssments weight is greater then current assessmnt weight, then trend is positive
       
-   } else if(assessments[assessments.length-1].weight < newAssessment.weight)  {
+   } else if(parseFloat(assessments[assessments.length-1].weight) < parseFloat(newAssessment.weight))  {
      trend = false;
    }
     
@@ -137,7 +65,7 @@ const prepdata = {
     const membrGoals = membr.goals;
     let goalCategory = ""
     let goalValue = 0.00;
-    let d0 = newAssessment.date;
+    let d0 = new Date(newAssessment.date);
     let d1 = d0.valueOf(); 
     logger.info('assessment date is ',d0);
      
@@ -151,7 +79,7 @@ const prepdata = {
             if(membrGoals[i].status === "open" || membrGoals[i].status === "not achieved yet, but within timeframe" ) {
                logger.info('goal status is ',membrGoals[i].status);
                goalCategory = membrGoals[i].goalcategory;
-               goalValue = membrGoals[i].goal;
+               goalValue = parseFloat(membrGoals[i].goal);
              // once we find a goal that is open or not achieved yet   
              // we extract the goal category and the value of the goal
              // the new Assessment the we received has many properties, so we need to loop through each
@@ -160,30 +88,31 @@ const prepdata = {
 
                    if (propt === goalCategory) {
                      logger.info('Assessment property match found',goalCategory);
-                     let d22 = membrGoals[i].Gdate;
-                     let d2 = d22.valueOf()
+                     let d22 = new Date(membrGoals[i].Gdate);
+                     let d2 = d22.valueOf();
                      // goal date, which is the target date, is converted to number to allow comparison with Assessment date 
                      
-                     if ((newAssessment[propt] == goalValue) && (d1 <= d2)) {
+                     if ((parseFloat(newAssessment[propt]) === goalValue) && (d1 <= d2)) {
                         
                           membrGoals[i].status = "achieved within time frame";
                           logger.info('goal status ',membrGoals[i].status);
                           membrGoals[i].achieveddate = newAssessment.date;
                           attained = true;
                          
-                       } else if ((newAssessment[propt] == goalValue) && (d1 > d2)) {
+                       } else if ((parseFloat(newAssessment[propt]) === goalValue) && (d1 > d2)) {
                          
                           membrGoals[i].status = "achieved outside time frame";
                           logger.info('goal status ',membrGoals[i].status);
                           membrGoals[i].achieveddate = newAssessment.date;
                           attained = true;
                     
-                      }else if ((newAssessment[propt] != goalValue) && (d1 < d2)) {
+                      }else if ((parseFloat(newAssessment[propt]) !== goalValue) && (d1 < d2)) {
                         
                           membrGoals[i].status = "not achieved yet, but within timeframe";
                            logger.info('goal status not ach date ',d2);
                        } else {
-                         logger.info('else',d2);
+                         logger.info('else d1',d1);
+                         logger.info('else d2',d2);
                          membrGoals[i].status = "missed target";
                        }
 
@@ -198,17 +127,12 @@ const prepdata = {
   
   
   
-  
-  
-  
-  
-  
    
 };
 
 
 
-module.exports = prepdata;
+module.exports = prepdata2;
 
 
 

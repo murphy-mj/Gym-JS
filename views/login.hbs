@@ -1,4 +1,29 @@
-<form class="ui stacked segment form" action="./authenticate" method="POST">
+<script>
+
+function validateForm() {
+    let a = document.forms["loginform"]["password"].value;
+    
+  if (a == "") {
+        alert("please enter passwod");
+        document.forms["loginform"]["password"].focus
+        return false;
+    }
+  
+  
+  
+  let b = document.forms["loginform"]["email"].value;
+  
+  if (b == "" || b.indexOf('@') === -1) {
+        alert("Please re-input email");
+        document.forms["loginform"]["email"].focus;
+        return false;
+    }
+  
+}
+</script>
+  
+
+<form name ="loginform"  class="ui stacked segment form" onsubmit="return validateForm()"  action="./authenticate" method="POST">
   <h3 class="ui header">Log-in</h3>
     <div class="field">
       <label>Email</label> 

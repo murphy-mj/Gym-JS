@@ -30,10 +30,10 @@ function validateForm() {
     }
     var f = document.forms["memberform"]["height"].value;
     if (f == "" || f <= 0 || f >= 2.15) {
-        alert("your height must be apositive number, and less than 2.1 meters");
+        alert("your height must be apositive number, and less than 2.15 meters");
         return false;
     }
-    var g = document.forms["memberform"]["startweight"].value;
+    var g = document.forms["memberform"]["startWeight"].value;
     if (g == "" || g < 45 || g >= 126) {
         alert("your starting weight must be a positive number, greater than 44 and less than 126 kgs");
         return false;
@@ -44,19 +44,15 @@ function validateForm() {
         return false;
     }
   
-  
-  
-  
-  
-  
 }
 
 </script>
 
 
 <form name ="memberform" on class="ui stacked segment form" onsubmit="return validateForm()" action="/register" method="POST">
-  <h3 class="ui header">Register</h3>
-  <div class="two fields">
+  <h3 class="ui header">Register - Please enter your details</h3>
+  
+  <div class="three fields">
     <div class="field">
       <label>First Name</label>
       <input placeholder="First Name" type="text"  name="firstName">
@@ -70,14 +66,18 @@ function validateForm() {
       <input placeholder="M/F/X" type="text"  name="gender">
     </div>
   </div>
-  <div class="field">
-    <label>Email</label>
-    <input placeholder="Email" type="text" name="email">
+  
+  <div class="two fields">
+    <div class="field">
+      <label>Email</label>
+      <input placeholder="Email" type="text" name="email">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="password">
+    </div>
   </div>
-  <div class="field">
-    <label>Password</label>
-    <input type="password" name="password">
-  </div>
+  
   <div class="three fields">
     <div class="field">
       <label>Height</label>
@@ -85,26 +85,18 @@ function validateForm() {
     </div>
     <div class="field">
       <label>Starting Weight</label>
-      <input placeholder="00.00 Kg" type="number"  name="startweight">
+      <input placeholder="00.00 Kg" type="text"  name="startWeight">
     </div>
     <div class="field">
       <label>Age</label>
       <input placeholder="21" type="number"  name="age">
     </div>
   </div>
+  
   <div class="field">
       <label>Address</label>
       <input placeholder="331 Bakers St" type="text"  name="address">
   </div>
-  <div class="two fields">
-    <div class="field">
-      <label>Starting Arm</label>
-      <input placeholder="20 cms" type="number"  name="startarm">
-    </div>
-    <div class="field">
-      <label>Starting Thigh</label>
-      <input placeholder="15 cm" type="number"  name="startthigh">
-    </div>
     <div class="field">
       <label>The source of your image</label>
       <input placeholder="https://semantic-ui.com/images/avatar2/large/elyse.png" type="text"  name="photo">

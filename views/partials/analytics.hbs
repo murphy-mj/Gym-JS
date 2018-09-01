@@ -10,36 +10,38 @@
           <br>
           {{membersData.firstName}}  {{membersData.lastName}}
         </div>
+      
+      
+      
     </div>
     
     <div class = "ui statistic">                  
         <div class = "value">
        {{#if idealbodyweight}} 
-       <i class="smile icon"></i><br>
+       <i class="smile icon"></i>
         {{else}}
-        <i class="frown icon"></i><br>
+        <i class="frown icon"></i>
         {{/if}}
         </div>
-        <div class"label">
-          Ideal Body Weight 
+        <div class = "label">
+          IDEAL BODY WEIGHT 
         </div>  
     </div>   
       
-    <div class = "ui statistic"> 
-       <div class = "value">
-         <i class="heartbeat icon"></i><br>
-         {{bmi}}
-       </div>
-       <div class"label">
-         BMI
+    <div class = "ui small statistic"> 
+      <div class = "value">
+        <i class="heartbeat icon"></i>
        </div>  
+       <div class = "text value">
+         BMI {{bmi}}
+       </div>
+       
     </div>
       
-    <div class = "ui statistic"> 
-      <br>
-      <div class"label">
-        Category
-      </div>    
+    <div class = "ui small statistic"> 
+      <div class = "value">
+        <i class="user md icon"></i>
+      </div> 
        <div class = "text value">
          {{bmicategory}}
       </div>

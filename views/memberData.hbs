@@ -1,7 +1,33 @@
+<script>
+
+function validateForm() {
+  
+    var f = document.forms["updateform""]["height"].value;
+    if (f <= 0 && f != ''  || f >= 2.15 && f != '' ) {
+        alert("your height must be apositive number, and less than 2.1 meters");
+        return false;
+    }
+    var g = document.forms["updateform""]["startweight"].value;
+    if (g < 45 && g != ''  || g >= 126 && g != '' ) {
+        alert("your starting weight must be a positive number, greater than 44 and less than 126 kgs");
+        return false;
+    }
+    var h = document.forms["updateform""]["age"].value;
+    if ( h < 16 && h != '' || h > 100 && h != '') {
+        alert("your age must be a positive number, must be greater than 15 and less the 100");
+        return false;
+    }
+  
+}
+
+</script>
+
+
+
 {{> menu_member id="update_member"}}
 
 
-<form class="ui stacked segment form" action="/memberDataUpdate" method="POST">
+<form name = "updateform" class="ui stacked segment form" onsubmit="return validateForm()"  action="/memberDataUpdate" method="POST">
   <h3 class="ui header">Existing Details</h3>
   <div class="three fields">
     <div class="field">
